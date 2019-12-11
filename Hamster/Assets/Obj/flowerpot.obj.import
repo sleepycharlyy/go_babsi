@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/flowerpot.obj-c20f246e8ffc94ff916afbdf692dac68.mesh"
+
+[deps]
+
+files=[ "res://.import/flowerpot.obj-c20f246e8ffc94ff916afbdf692dac68.mesh" ]
+
+source_file="res://Assets/Obj/flowerpot.obj"
+dest_files=[ "res://.import/flowerpot.obj-c20f246e8ffc94ff916afbdf692dac68.mesh", "res://.import/flowerpot.obj-c20f246e8ffc94ff916afbdf692dac68.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

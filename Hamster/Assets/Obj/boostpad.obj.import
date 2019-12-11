@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/boostpad.obj-0d95420cd1fe0b97a4d3be036ded521b.mesh"
+
+[deps]
+
+files=[ "res://.import/boostpad.obj-0d95420cd1fe0b97a4d3be036ded521b.mesh" ]
+
+source_file="res://Assets/Obj/boostpad.obj"
+dest_files=[ "res://.import/boostpad.obj-0d95420cd1fe0b97a4d3be036ded521b.mesh", "res://.import/boostpad.obj-0d95420cd1fe0b97a4d3be036ded521b.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/new_hamster.obj-6a79f4b20b999a312a65ebe180606952.mesh"
+
+[deps]
+
+files=[ "res://.import/new_hamster.obj-6a79f4b20b999a312a65ebe180606952.mesh" ]
+
+source_file="res://Assets/Obj/new_hamster.obj"
+dest_files=[ "res://.import/new_hamster.obj-6a79f4b20b999a312a65ebe180606952.mesh", "res://.import/new_hamster.obj-6a79f4b20b999a312a65ebe180606952.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

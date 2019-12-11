@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Obj/flagpole.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Materials/red.material" type="Material" id=2]
+[ext_resource path="res://Materials/blue.material" type="Material" id=3]
+[ext_resource path="res://Materials/yellow.material" type="Material" id=4]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1.46149, 0.930553, 1.29397 )
+
+[node name="Goal" type="StaticBody"]
+transform = Transform( -0.3, 4.52987e-008, 0, -4.52987e-008, -0.3, 0, 0, 0, 0.3, 0, 0, 0 )
+collision_layer = 17
+collision_mask = 17
+
+[node name="flagpole" type="MeshInstance" parent="."]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 2 )
+material/1 = ExtResource( 3 )
+material/2 = ExtResource( 4 )
+material/3 = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( -3.80014, 2.28957e-007, -4.12208e-014, 2.28957e-007, -2.28383, 5.4367e-021, 4.45414e-014, -5.30973e-021, -4.10627, 0.119537, 1.13863, -0.132059 )
+shape = SubResource( 1 )
