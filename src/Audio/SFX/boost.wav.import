@@ -2,11 +2,13 @@
 
 importer="wav"
 type="AudioStreamSample"
-valid=false
+path="res://.import/boost.wav-ffeb1ff31c8e3612f57d10e9e4c3a881.sample"
 
 [deps]
 
 source_file="res://Audio/SFX/boost.wav"
+dest_files=[ "res://.import/boost.wav-ffeb1ff31c8e3612f57d10e9e4c3a881.sample" ]
+
 [params]
 
 force/8_bit=false

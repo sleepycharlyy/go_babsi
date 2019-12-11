@@ -2,11 +2,13 @@
 
 importer="wav"
 type="AudioStreamSample"
-valid=false
+path="res://.import/spawn.wav-79828f8f9f1487d4628920478b7e2dcb.sample"
 
 [deps]
 
 source_file="res://Audio/SFX/spawn.wav"
+dest_files=[ "res://.import/spawn.wav-79828f8f9f1487d4628920478b7e2dcb.sample" ]
+
 [params]
 
 force/8_bit=false

@@ -2,11 +2,13 @@
 
 importer="wav"
 type="AudioStreamSample"
-valid=false
+path="res://.import/collectable.wav-e372e218040b8f5b8ed0e0624bb40dff.sample"
 
 [deps]
 
 source_file="res://Audio/SFX/collectable.wav"
+dest_files=[ "res://.import/collectable.wav-e372e218040b8f5b8ed0e0624bb40dff.sample" ]
+
 [params]
 
 force/8_bit=false

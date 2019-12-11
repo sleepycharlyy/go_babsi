@@ -2,11 +2,13 @@
 
 importer="wav"
 type="AudioStreamSample"
-valid=false
+path="res://.import/death.wav-4432ab88ffdb181b49a98a771147635a.sample"
 
 [deps]
 
 source_file="res://Audio/SFX/death.wav"
+dest_files=[ "res://.import/death.wav-4432ab88ffdb181b49a98a771147635a.sample" ]
+
 [params]
 
 force/8_bit=false

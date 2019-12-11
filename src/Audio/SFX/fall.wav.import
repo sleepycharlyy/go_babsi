@@ -2,11 +2,13 @@
 
 importer="wav"
 type="AudioStreamSample"
-valid=false
+path="res://.import/fall.wav-073dc724a0c825d9f103b8cc2e864287.sample"
 
 [deps]
 
 source_file="res://Audio/SFX/fall.wav"
+dest_files=[ "res://.import/fall.wav-073dc724a0c825d9f103b8cc2e864287.sample" ]
+
 [params]
 
 force/8_bit=false
