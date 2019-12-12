@@ -64,7 +64,20 @@ func _physics_process(d):
 		$JumpSound.play()
 	#boostpad (layer 4)
 	if $DetectBoostPad.is_colliding():	
-		pass
+		#jump
+		vel.y += jump_power/2
+		#get direction
+		var rot = $DetectBoostPad.get_collider().get_rotation_degrees()
+		var rot_y = round(rot.y)
+		if(rot_y == 180 || rot_y == -180):
+			vel.z -= jump_power/2
+		elif(rot_y == 0):
+			vel.z += jump_power/2
+		elif(rot_y == 90):
+			vel.x += jump_power/2
+		elif(rot_y == -90):
+			vel.x -= jump_power/2
+		$JumpSound.play()
 	#goal (layer 5)
 	if $DetectGoal.is_colliding():
 		$FinishLevelSound.play()

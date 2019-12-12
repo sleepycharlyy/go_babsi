@@ -9,7 +9,6 @@
 [ext_resource path="res://Scenes/Objects/BoostPad.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Objects/Palm.tscn" type="PackedScene" id=8]
 
-
 [sub_resource type="CubeMesh" id=1]
 material = ExtResource( 3 )
 
@@ -66,6 +65,26 @@ transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 45.01
 
 [node name="BoostPad" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.9174, 1.04641, 0 )
+collision_layer = 9
+collision_mask = 9
+
+[node name="BoostPad2" parent="." instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 32.3405, 1.04641, 0 )
+collision_layer = 9
+collision_mask = 9
+
+[node name="BoostPad3" parent="." instance=ExtResource( 7 )]
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 32.3405, 1.04641, 20.0283 )
+collision_layer = 9
+collision_mask = 9
+
+[node name="BoostPad4" parent="." instance=ExtResource( 7 )]
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 32.3405, 1.04641, 35.8044 )
+collision_layer = 9
+collision_mask = 9
+
+[node name="BoostPad5" parent="." instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 14.4941, 1.04641, 35.8044 )
 collision_layer = 9
 collision_mask = 9
 
