@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Hamster"
+config/name="go! BABSI"
 run/main_scene="res://Scenes/Levels/Titlescreen/Titlescreen.tscn"
 boot_splash/image="res://Assets/Textures/Application/splashscreen.png"
 config/icon="res://Assets/Textures/Application/icon.png"
@@ -134,10 +134,6 @@ button_pause={
  ]
 }
 
-[mono]
-
-debugger_agent/wait_for_debugger=true
-
 [rendering]
 
 quality/driver/driver_name="GLES2"
@@ -146,4 +142,5 @@ quality/2d/use_pixel_snap=true
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
 environment/default_clear_color=Color( 0.14902, 0.192157, 0.219608, 1 )
+quality/reflections/atlas_size=4096
 environment/default_environment="res://default_env.tres"

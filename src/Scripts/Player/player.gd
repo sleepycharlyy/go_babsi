@@ -3,20 +3,33 @@ extends KinematicBody
 #initialize
 
 signal level_finished
+
 var spd = 23
 var rot_spd = 3
 var acc = 5
 var grav = 7
 var jump_power = 300
+
 const MAX_SLOPE_ANGLE = 65
+
 var vel = Vector3()
 var anim_player
+
 var score = 0
+
+var time_start = 0
+var time_now = 0
+var str_elapsed = "00 : 00"
 
 func _ready():
 	set_physics_process(true)
+	
 	anim_player = get_node("Animation")
+	
 	$SpawnSound.play()
+	
+	time_start = OS.get_unix_time()
+	
 
 func _physics_process(d):
 	#var
@@ -72,6 +85,13 @@ func _physics_process(d):
 	#move player
 	vel = move_and_slide(vel,Vector3(0,1,0), 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
 	
-
+func _process(d):
+	#time
+	time_now = OS.get_unix_time()
+	var elapsed = time_now - time_start
+	var minutes = elapsed / 60
+	var seconds = elapsed % 60
+	str_elapsed = "%02d : %02d" % [minutes, seconds]
+	
 	
 	

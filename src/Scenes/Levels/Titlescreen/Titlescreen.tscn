@@ -7,19 +7,19 @@
 [ext_resource path="res://Assets/atari full.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Scenes/Misc/FadeIn.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Animations/titlescreen.anim" type="Animation" id=7]
-[ext_resource path="res://Scenes/Objects/Grass.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Materials/green.material" type="Material" id=9]
-[ext_resource path="res://Materials/yellow.material" type="Material" id=10]
-[ext_resource path="res://Assets/Obj/hamster.obj" type="ArrayMesh" id=11]
-[ext_resource path="res://Materials/Player/white.material" type="Material" id=12]
-[ext_resource path="res://Materials/Player/black.material" type="Material" id=13]
-[ext_resource path="res://Materials/Player/transparent.material" type="Material" id=14]
-[ext_resource path="res://Assets/Obj/stone.obj" type="ArrayMesh" id=15]
-[ext_resource path="res://Materials/biggeroutline_blue.material" type="Material" id=16]
-[ext_resource path="res://Assets/Obj/dirthill.obj" type="ArrayMesh" id=17]
-[ext_resource path="res://Assets/Obj/flowerpot.obj" type="ArrayMesh" id=18]
-[ext_resource path="res://Materials/biggeroutline_red.material" type="Material" id=19]
-[ext_resource path="res://Materials/biggeroutline_green.material" type="Material" id=20]
+[ext_resource path="res://Assets/Obj/grass.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://Materials/biggeroutline_green.material" type="Material" id=9]
+[ext_resource path="res://Materials/green.material" type="Material" id=10]
+[ext_resource path="res://Materials/yellow.material" type="Material" id=11]
+[ext_resource path="res://Assets/Obj/hamster.obj" type="ArrayMesh" id=12]
+[ext_resource path="res://Materials/Player/white.material" type="Material" id=13]
+[ext_resource path="res://Materials/Player/black.material" type="Material" id=14]
+[ext_resource path="res://Materials/Player/transparent.material" type="Material" id=15]
+[ext_resource path="res://Assets/Obj/stone.obj" type="ArrayMesh" id=16]
+[ext_resource path="res://Materials/biggeroutline_blue.material" type="Material" id=17]
+[ext_resource path="res://Assets/Obj/dirthill.obj" type="ArrayMesh" id=18]
+[ext_resource path="res://Assets/Obj/flowerpot.obj" type="ArrayMesh" id=19]
+[ext_resource path="res://Materials/biggeroutline_red.material" type="Material" id=20]
 [ext_resource path="res://Materials/biggeroutline.material" type="Material" id=21]
 [ext_resource path="res://Shaders/cel.shader" type="Shader" id=22]
 [ext_resource path="res://Materials/blue.material" type="Material" id=23]
@@ -39,7 +39,7 @@ font_data = ExtResource( 5 )
 [sub_resource type="CubeMesh" id=3]
 
 [sub_resource type="SphereMesh" id=4]
-material = ExtResource( 14 )
+material = ExtResource( 15 )
 
 [sub_resource type="ShaderMaterial" id=5]
 next_pass = ExtResource( 21 )
@@ -78,7 +78,6 @@ transform = Transform( 0.559602, -0.424212, 0.711962, 0.583544, 0.811697, 0.0249
 shadow_enabled = true
 
 [node name="GUI" type="CanvasLayer" parent="."]
-editor/display_folded = true
 
 [node name="Menu" type="VBoxContainer" parent="GUI"]
 margin_left = 120.0
@@ -174,7 +173,7 @@ custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.337255, 0.423529, 0.52549, 1 )
 custom_colors/font_color_shadow = Color( 0.101961, 0.109804, 0.172549, 1 )
 custom_constants/shadow_offset_y = 2
-text = "Prototype 1.1"
+text = "Prototype 1.2"
 
 [node name="FadeIn" parent="GUI" instance=ExtResource( 6 )]
 visible = false
@@ -185,16 +184,36 @@ anims/titlescreen = ExtResource( 7 )
 [node name="BG" type="Spatial" parent="."]
 
 [node name="Grass" type="Spatial" parent="BG"]
-editor/display_folded = true
 
-[node name="Grass2" parent="BG/Grass" instance=ExtResource( 8 )]
+[node name="Grass2" type="Spatial" parent="BG/Grass"]
 transform = Transform( 0.188978, 0.064971, 0.0081336, -0.0633742, 0.175242, 0.0726221, 0.0164649, -0.0711971, 0.186172, -4.7809, -3.81696, 66.9102 )
 
-[node name="Grass" parent="BG/Grass" instance=ExtResource( 8 )]
+[node name="Grass" type="MeshInstance" parent="BG/Grass/Grass2"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = ExtResource( 8 )
+material/0 = ExtResource( 9 )
+material/1 = ExtResource( 9 )
+material/2 = ExtResource( 9 )
+
+[node name="Grass" type="Spatial" parent="BG/Grass"]
 transform = Transform( -0.160978, 0, -0.986958, 0, 1, 0, 0.986958, 0, -0.160978, 21.0303, -6.12518, 32.2513 )
 
-[node name="Grass3" parent="BG/Grass" instance=ExtResource( 8 )]
+[node name="Grass" type="MeshInstance" parent="BG/Grass/Grass"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = ExtResource( 8 )
+material/0 = ExtResource( 9 )
+material/1 = ExtResource( 9 )
+material/2 = ExtResource( 9 )
+
+[node name="Grass3" type="Spatial" parent="BG/Grass"]
 transform = Transform( 0.918205, 0, -0.396105, -0.0524188, 0.991205, -0.121511, 0.392622, 0.132335, 0.910129, -9.70338, -2.29548, 51.7575 )
+
+[node name="Grass" type="MeshInstance" parent="BG/Grass/Grass3"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = ExtResource( 8 )
+material/0 = ExtResource( 9 )
+material/1 = ExtResource( 9 )
+material/2 = ExtResource( 9 )
 
 [node name="Hill" type="Spatial" parent="BG"]
 editor/display_folded = true
@@ -202,7 +221,7 @@ editor/display_folded = true
 [node name="HilMesh" type="MeshInstance" parent="BG/Hill"]
 transform = Transform( 28.4618, 0, 0, 0, 4.96054, 0.0144704, 0, -0.0461089, 15.8064, -18.1942, -6.33063, 37.2178 )
 mesh = SubResource( 2 )
-material/0 = ExtResource( 9 )
+material/0 = ExtResource( 10 )
 
 [node name="Ground" type="Spatial" parent="BG"]
 editor/display_folded = true
@@ -210,21 +229,21 @@ editor/display_folded = true
 [node name="GroundMesh" type="MeshInstance" parent="BG/Ground"]
 transform = Transform( 58.0279, 0, 0, 0, 1, -8.74228e-008, 0, 5.86019e-006, 67.033, 0, -6.96645, 0 )
 mesh = SubResource( 3 )
-material/0 = ExtResource( 10 )
+material/0 = ExtResource( 11 )
 
 [node name="Player" type="Spatial" parent="BG"]
 transform = Transform( -0.944719, 0.0252129, -0.326911, 0.0893521, 0.9791, -0.1827, 0.315473, -0.20181, -0.927227, 0, -6.53421, 30.1232 )
 
 [node name="Hamster" type="MeshInstance" parent="BG/Player"]
 transform = Transform( 0.0129965, 0.000293897, 7.43256e-005, -0.000302865, 0.0127261, 0.00263709, -1.31421e-005, -0.00263811, 0.0127295, -0.0439148, 5.36505, -3.90391 )
-mesh = ExtResource( 11 )
-material/0 = ExtResource( 12 )
-material/1 = ExtResource( 13 )
-material/2 = ExtResource( 13 )
-material/3 = ExtResource( 13 )
-material/4 = ExtResource( 13 )
-material/5 = ExtResource( 13 )
-material/6 = ExtResource( 12 )
+mesh = ExtResource( 12 )
+material/0 = ExtResource( 13 )
+material/1 = ExtResource( 14 )
+material/2 = ExtResource( 14 )
+material/3 = ExtResource( 14 )
+material/4 = ExtResource( 14 )
+material/5 = ExtResource( 14 )
+material/6 = ExtResource( 13 )
 
 [node name="Ball" type="MeshInstance" parent="BG/Player"]
 transform = Transform( 5.18669, 0, 0, 0, 1.45779, -4.97761, -2.38419e-007, 4.97761, 1.45779, 0, 7.17697, 0 )
@@ -233,25 +252,25 @@ material/0 = null
 
 [node name="stone" type="MeshInstance" parent="BG"]
 transform = Transform( 0.2, 0, 0, 0, 0.191457, 0.0578278, 0, -0.0578278, 0.191457, 35.1222, -11.1403, 61.9651 )
-mesh = ExtResource( 15 )
-material/0 = ExtResource( 16 )
-material/1 = ExtResource( 16 )
-material/2 = ExtResource( 16 )
-material/3 = ExtResource( 16 )
-material/4 = ExtResource( 16 )
+mesh = ExtResource( 16 )
+material/0 = ExtResource( 17 )
+material/1 = ExtResource( 17 )
+material/2 = ExtResource( 17 )
+material/3 = ExtResource( 17 )
+material/4 = ExtResource( 17 )
 
 [node name="dirthill" type="MeshInstance" parent="BG"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 77.8832, -64.0377, 74.7822 )
-mesh = ExtResource( 17 )
-material/0 = ExtResource( 9 )
+mesh = ExtResource( 18 )
+material/0 = ExtResource( 10 )
 
 [node name="flowerpot" type="MeshInstance" parent="BG"]
 transform = Transform( 0.0998617, 0.00525769, 0, -0.00525769, 0.0998617, 0, 0, 0, 0.1, -46.3812, -4.14628, 62.2815 )
-mesh = ExtResource( 18 )
-material/0 = ExtResource( 19 )
+mesh = ExtResource( 19 )
+material/0 = ExtResource( 20 )
 material/1 = null
-material/2 = ExtResource( 10 )
-material/3 = ExtResource( 20 )
+material/2 = ExtResource( 11 )
+material/3 = ExtResource( 9 )
 material/4 = SubResource( 5 )
 material/5 = SubResource( 5 )
 material/6 = SubResource( 5 )
@@ -266,24 +285,24 @@ material/13 = ExtResource( 23 )
 [node name="ladder" type="MeshInstance" parent="BG"]
 transform = Transform( 0.16115, -0.114978, -0.0284721, 0.116709, 0.162339, 0.00499441, 0.0202395, -0.020639, 0.1979, 8.10406, -9.96038, 78.6144 )
 mesh = ExtResource( 24 )
-material/0 = ExtResource( 19 )
-material/1 = ExtResource( 19 )
-material/2 = ExtResource( 19 )
-material/3 = ExtResource( 19 )
-material/4 = ExtResource( 19 )
+material/0 = ExtResource( 20 )
+material/1 = ExtResource( 20 )
+material/2 = ExtResource( 20 )
+material/3 = ExtResource( 20 )
+material/4 = ExtResource( 20 )
 material/5 = ExtResource( 25 )
 material/6 = ExtResource( 25 )
-material/7 = ExtResource( 19 )
+material/7 = ExtResource( 20 )
 
 [node name="Goal" type="StaticBody" parent="BG"]
 transform = Transform( 0.375136, 0, 0, 0, -0.375136, 3.27954e-008, 0, -3.27954e-008, -0.375136, -48.0506, -13.0345, 113.803 )
 
 [node name="flagpole" type="MeshInstance" parent="BG/Goal"]
 mesh = ExtResource( 26 )
-material/0 = ExtResource( 19 )
-material/1 = ExtResource( 16 )
+material/0 = ExtResource( 20 )
+material/1 = ExtResource( 17 )
 material/2 = ExtResource( 25 )
-material/3 = ExtResource( 16 )
+material/3 = ExtResource( 17 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Goal"]
 transform = Transform( 10.4808, -1.7053e-013, -1.7053e-013, 5.68434e-013, 10.4808, 2.03288e-020, -1.13687e-013, 1.35525e-020, 10.4808, 0.824073, -3.03936e-007, -2.38011 )

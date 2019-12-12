@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://Scripts/Player/player_movement.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Player/player.gd" type="Script" id=1]
 [ext_resource path="res://Materials/Player/transparent.material" type="Material" id=2]
 [ext_resource path="res://Scripts/Player/camera_movement.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Obj/new_hamster.obj" type="ArrayMesh" id=4]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Audio/SFX/collectable.wav" type="AudioStream" id=10]
 [ext_resource path="res://Audio/SFX/jump.wav" type="AudioStream" id=11]
 [ext_resource path="res://Audio/SFX/accept.wav" type="AudioStream" id=12]
+
 
 [sub_resource type="SphereMesh" id=1]
 material = ExtResource( 2 )

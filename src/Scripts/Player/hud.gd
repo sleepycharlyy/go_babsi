@@ -10,7 +10,8 @@ func _process(d):
 	var z =	player.get_translation().z
 	var fps = Engine.get_frames_per_second()
 	#get_node("Debug").set_text("x:" + str(x) + " y:" + str(y) + " z:" + str(z) + " fps:" + str(fps))
-	get_node("Score").set_text("x" + str(player.score))
+	get_node("Score").set_text("x " + str(player.score))
+	get_node("Time").set_text(player.str_elapsed) 
 		
 	
 func _input(event):
@@ -29,8 +30,11 @@ func _on_Player_level_finished():
 	get_tree().paused = true
 	$Finished.visible = true
 	$Score.visible = false
-	$Finished/Back.grab_focus()
-
+	$Time.visible = false
+	$Finished/Next.grab_focus()
+	$Finished/Score.set_text("Score: " + str(player.score))
+	$Finished/Time.set_text("Time: " + player.str_elapsed)
 
 func _on_Back_pressed():
-	get_tree().change_scene(scene_to_switch_to)
+	#get_tree().change_scene(scene_to_switch_to)
+	get_tree().reload_current_scene()
