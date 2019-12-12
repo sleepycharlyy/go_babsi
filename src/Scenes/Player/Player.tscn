@@ -13,7 +13,6 @@
 [ext_resource path="res://Audio/SFX/jump.wav" type="AudioStream" id=11]
 [ext_resource path="res://Audio/SFX/accept.wav" type="AudioStream" id=12]
 
-
 [sub_resource type="SphereMesh" id=1]
 material = ExtResource( 2 )
 
@@ -36,6 +35,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.74849, 0 )
 transform = Transform( -1, 0, -8.74228e-008, -2.46229e-008, 0.959516, 0.281653, 8.38836e-008, 0.281653, -0.959516, 0, 5.96519, -11.7937 )
 current = true
 fov = 90.0
+far = 400.0
 script = ExtResource( 3 )
 
 [node name="Hamster" type="MeshInstance" parent="."]

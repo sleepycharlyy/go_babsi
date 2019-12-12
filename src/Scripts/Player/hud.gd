@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 onready var player = get_node("/root/World/Player")
-export var scene_to_switch_to = "res://Scenes/Levels/Titlescreen/"
+export var scene_to_switch_to = "res://Scenes/Levels/Titlescreen/Titlescreen.tscn"
 var can_paused = true
 
 func _process(d):
@@ -36,5 +36,6 @@ func _on_Player_level_finished():
 	$Finished/Time.set_text("Time: " + player.str_elapsed)
 
 func _on_Back_pressed():
-	#get_tree().change_scene(scene_to_switch_to)
-	get_tree().reload_current_scene()
+	get_tree().change_scene(scene_to_switch_to)
+	can_paused = true
+	get_tree().paused = false
