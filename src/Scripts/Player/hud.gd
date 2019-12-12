@@ -10,7 +10,7 @@ func _process(d):
 	var z =	player.get_translation().z
 	var fps = Engine.get_frames_per_second()
 	#get_node("Debug").set_text("x:" + str(x) + " y:" + str(y) + " z:" + str(z) + " fps:" + str(fps))
-	get_node("Score").set_text("Score: " + str(player.score))
+	get_node("Score").set_text("x" + str(player.score))
 		
 	
 func _input(event):

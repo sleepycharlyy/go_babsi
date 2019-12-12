@@ -78,6 +78,7 @@ transform = Transform( 0.559602, -0.424212, 0.711962, 0.583544, 0.811697, 0.0249
 shadow_enabled = true
 
 [node name="GUI" type="CanvasLayer" parent="."]
+editor/display_folded = true
 
 [node name="Menu" type="VBoxContainer" parent="GUI"]
 margin_left = 120.0
