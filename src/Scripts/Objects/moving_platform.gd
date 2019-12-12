@@ -28,7 +28,6 @@ func _physics_process(d):
 	transl_base = get_translation()
 	
 	var dir = Vector3()
-	print(transl_base)
 	if(transl_base.y >= end_y):
 		switch_going_up = false
 		get_tree().create_timer(2, true)
