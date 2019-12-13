@@ -79,6 +79,10 @@ func _physics_process(d):
 		$CPUParticles.emitting = true
 	else:
 		$CPUParticles.emitting = false
+	if $DetectIfFalling.is_colliding(): #particles
+		$CPUParticles.visible = true
+	else:
+		$CPUParticles.visible = false
 
 
 	

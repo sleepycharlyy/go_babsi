@@ -12,7 +12,7 @@
 [ext_resource path="res://Audio/SFX/spawn.wav" type="AudioStream" id=10]
 [ext_resource path="res://Audio/SFX/collectable.wav" type="AudioStream" id=11]
 [ext_resource path="res://Audio/SFX/jump.wav" type="AudioStream" id=12]
-[ext_resource path="res://Audio/SFX/accept.wav" type="AudioStream" id=13]
+[ext_resource path="res://Audio/SFX/select.wav" type="AudioStream" id=13]
 
 [sub_resource type="SphereMesh" id=1]
 material = ExtResource( 2 )
@@ -69,7 +69,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.177, 0 )
 script = ExtResource( 1 )
 
 [node name="Ball" type="MeshInstance" parent="."]
-transform = Transform( 5.18669, 0, 0, 0, 1.60278, -4.93284, 0, 4.93284, 1.60278, 0, -3.00407e-005, 0 )
+transform = Transform( 5.18669, 0, 0, 0, 5.1867, 0, 0, 0, 5.1867, 0, -3.00407e-005, 0 )
 mesh = SubResource( 1 )
 material/0 = null
 
@@ -84,7 +84,7 @@ far = 400.0
 script = ExtResource( 3 )
 
 [node name="Hamster" type="MeshInstance" parent="."]
-transform = Transform( -0.013, 3.2088e-010, 1.09026e-009, 0, 0.0124711, -0.00367044, -1.1365e-009, -0.00367044, -0.0124711, 0, -1.8, -3.1752 )
+transform = Transform( -0.013, 3.96632e-011, 1.13581e-009, 0, 0.0129921, -0.000453694, -1.1365e-009, -0.000453694, -0.0129921, 0, -1, -3.876 )
 mesh = ExtResource( 4 )
 material/0 = ExtResource( 5 )
 material/1 = ExtResource( 5 )
@@ -117,7 +117,11 @@ collision_mask = 16
 
 [node name="DetectGround" type="RayCast" parent="."]
 enabled = true
-cast_to = Vector3( 0, -6, 0 )
+cast_to = Vector3( 0, -8, 0 )
+
+[node name="DetectIfFalling" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, -30, 0 )
 
 [node name="CPUParticles" type="CPUParticles" parent="."]
 transform = Transform( 1.48512, 0.0102492, -0.0023196, 0, -0.327829, -1.44852, -0.0105084, 1.44848, -0.327821, 0, -3.86333, 0.514925 )
@@ -144,21 +148,26 @@ color_ramp = SubResource( 7 )
 anims/player = ExtResource( 8 )
 
 [node name="OutOfBoundsSound" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 9 )
 bus = "SFX"
 
 [node name="SpawnSound" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 10 )
 bus = "SFX"
 
 [node name="CollectiblesSound" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 11 )
 bus = "SFX"
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 12 )
 bus = "SFX"
 
 [node name="FinishLevelSound" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 13 )
 bus = "SFX"

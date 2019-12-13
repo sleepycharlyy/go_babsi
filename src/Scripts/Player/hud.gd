@@ -24,6 +24,7 @@ func _input(event):
 			var new_pause_state = not get_tree().paused
 			get_tree().paused = not get_tree().paused
 			$Pause.visible = new_pause_state
+			$PlayAccept.play()
 
 
 
@@ -40,6 +41,7 @@ func _on_Player_level_finished():
 	$Finished/Time.set_text("Time: " + player.str_elapsed)
 
 func _on_Back_pressed():
+	$PlayAccept.play()
 	can_paused = true
 	get_tree().paused = false
 	get_tree().change_scene(scene_to_switch_to)

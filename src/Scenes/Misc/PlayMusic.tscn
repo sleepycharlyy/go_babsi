@@ -3,6 +3,7 @@
 [ext_resource path="res://Audio/Music/adventure.ogg" type="AudioStream" id=1]
 
 [node name="PlayMusic" type="AudioStreamPlayer"]
+pause_mode = 2
 stream = ExtResource( 1 )
 autoplay = true
 bus = "Music"

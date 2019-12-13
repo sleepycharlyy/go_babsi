@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player/Hud.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Audio/PlayMusic.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Misc/PlayMusic.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Obj/level1.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://Materials/biggeroutline_blue.material" type="Material" id=5]
 [ext_resource path="res://Materials/biggeroutline_yellow.material" type="Material" id=6]
@@ -28,13 +28,13 @@ data = PoolVector3Array( 1963.66, 1254.96, -1313.56, 1963.66, -982.082, -1313.56
 
 [sub_resource type="BoxShape" id=2]
 
-[sub_resource type="CubeMesh" id=6]
-
 [sub_resource type="CubeMesh" id=3]
 
 [sub_resource type="CubeMesh" id=4]
 
 [sub_resource type="CubeMesh" id=5]
+
+[sub_resource type="CubeMesh" id=6]
 
 [sub_resource type="CubeMesh" id=7]
 
@@ -74,6 +74,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 38.4034, 1.02079 )
 [node name="PlayMusic" parent="." instance=ExtResource( 3 )]
 
 [node name="BG" type="Spatial" parent="."]
+editor/display_folded = true
 
 [node name="Level1" type="StaticBody" parent="BG"]
 
@@ -188,6 +189,7 @@ transform = Transform( 0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0.151, 26.486, 11.074
 shape = SubResource( 1 )
 
 [node name="Objects" type="Spatial" parent="BG"]
+editor/display_folded = true
 
 [node name="Interactive" type="Spatial" parent="BG/Objects"]
 
@@ -370,7 +372,7 @@ shape = SubResource( 2 )
 
 [node name="MeshInstance2" type="MeshInstance" parent="BG/Objects/Platform/Box"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.999998, -5.10118e-007, -4.76837e-006, 2.6226e-006 )
-mesh = SubResource( 6 )
+mesh = SubResource( 3 )
 material/0 = ExtResource( 15 )
 
 [node name="Box2" type="StaticBody" parent="BG/Objects/Platform"]
@@ -381,7 +383,7 @@ transform = Transform( 16.3396, 0, 0, 0, 38.68, 0, 0, 0, 14.5548, 0, 7.27482, -1
 shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Objects/Platform/Box2"]
-mesh = SubResource( 3 )
+mesh = SubResource( 4 )
 material/0 = ExtResource( 16 )
 
 [node name="Box5" type="StaticBody" parent="BG/Objects/Platform"]
@@ -392,7 +394,7 @@ transform = Transform( 16.34, 0, 0, 0, 70, 0, 0, 0, 14.555, 0, 7.27482, -180.336
 shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Objects/Platform/Box5"]
-mesh = SubResource( 4 )
+mesh = SubResource( 5 )
 material/0 = ExtResource( 15 )
 
 [node name="Box3" type="StaticBody" parent="BG/Objects/Platform"]
@@ -403,7 +405,7 @@ transform = Transform( 16.3396, 0, 0, 0, 38.68, 0, 0, 0, 35.4279, -32.6116, 7.27
 shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Objects/Platform/Box3"]
-mesh = SubResource( 5 )
+mesh = SubResource( 6 )
 material/0 = ExtResource( 16 )
 
 [node name="Box4" type="StaticBody" parent="BG/Objects/Platform"]
@@ -469,7 +471,6 @@ transform = Transform( 26.1992, 0, 0, 0, 40.5625, 0, 0, 0, 12.8387, 202.805, 78.
 shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Objects/Platform/Box14"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 12 )
 material/0 = ExtResource( 16 )
 
@@ -515,7 +516,6 @@ transform = Transform( 9.31877, 0, 0, 0, 17.5431, 0, 0, 0, 35.4279, 0.50312, 46.
 shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Objects/Platform/Box7"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 16 )
 material/0 = ExtResource( 9 )
 
