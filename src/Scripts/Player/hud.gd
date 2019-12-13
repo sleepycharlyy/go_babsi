@@ -37,9 +37,11 @@ func _on_Player_level_finished():
 	$Finished.visible = true
 	$Score.visible = false
 	$Time.visible = false
+	$Peanut.visible = false
 	$Finished/Next.grab_focus()
 	$Finished/Score.set_text("Score: " + str(player.score))
 	$Finished/Time.set_text("Time: " + player.str_elapsed)
+	$Finished/Peanut.visible = player.peanut
 
 func _on_Back_pressed():
 	$PlayAccept.play()

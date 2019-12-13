@@ -168,6 +168,15 @@ custom_colors/font_outline_modulate = Color( 0.337255, 0.423529, 0.52549, 1 )
 custom_colors/font_color_shadow = Color( 0.337255, 0.423529, 0.52549, 1 )
 text = "NEXT"
 
+[node name="Peanut" type="TextureRect" parent="Finished"]
+margin_left = 378.087
+margin_top = 483.316
+margin_right = 422.087
+margin_bottom = 529.316
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+
 [node name="PlayAccept" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 bus = "SFX"
