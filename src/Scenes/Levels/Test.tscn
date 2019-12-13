@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player/Hud.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/Objects/Goal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Objects/BoostPad.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Objects/Palm.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Objects/Peanut.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CubeMesh" id=1]
 material = ExtResource( 3 )
@@ -90,4 +91,7 @@ collision_mask = 9
 
 [node name="Palm" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5797, 0, 0 )
+
+[node name="Peanut" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17745, 4.07929, 23.2834 )
 [connection signal="level_finished" from="Player" to="Hud" method="_on_Player_level_finished"]

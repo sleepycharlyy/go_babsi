@@ -16,6 +16,7 @@ var vel = Vector3()
 var anim_player
 
 var score = 0
+var peanut = false
 
 var time_start = 0
 var time_now = 0

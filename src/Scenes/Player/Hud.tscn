@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Player/hud.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/font_30.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Assets/Textures/fruit.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Fonts/font_48.res" type="DynamicFont" id=4]
-[ext_resource path="res://Assets/Fonts/font_16.res" type="DynamicFont" id=5]
-[ext_resource path="res://Audio/SFX/accept.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Textures/peanut.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Fonts/font_48.res" type="DynamicFont" id=5]
+[ext_resource path="res://Assets/Fonts/font_16.res" type="DynamicFont" id=6]
+[ext_resource path="res://Audio/SFX/accept.wav" type="AudioStream" id=7]
 
 [node name="Hud" type="CanvasLayer"]
 pause_mode = 2
@@ -24,10 +25,10 @@ z: 0
 fps: 0"
 
 [node name="Score" type="Label" parent="."]
-margin_left = 64.8928
-margin_top = 37.6888
-margin_right = 376.893
-margin_bottom = 85.6888
+margin_left = 65.8428
+margin_top = 36.7388
+margin_right = 377.843
+margin_bottom = 84.7388
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 1, 0.803922, 0.458824, 1 )
 custom_colors/font_color_shadow = Color( 0.101961, 0.109804, 0.172549, 1 )
@@ -43,16 +44,25 @@ texture = ExtResource( 3 )
 expand = true
 stretch_mode = 5
 
+[node name="Peanut" type="TextureRect" parent="."]
+margin_left = 242.45
+margin_top = 48.2327
+margin_right = 286.45
+margin_bottom = 94.2327
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+
 [node name="Time" type="Label" parent="."]
 margin_left = 34.2659
-margin_top = 76.9278
+margin_top = 77.3459
 margin_right = 346.266
-margin_bottom = 124.928
+margin_bottom = 125.346
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.937255, 0.490196, 0.341176, 1 )
 custom_colors/font_color_shadow = Color( 0.101961, 0.109804, 0.172549, 1 )
 custom_constants/shadow_offset_y = 2
-text = "00:00"
+text = "00 : 00"
 
 [node name="Pause" type="Control" parent="."]
 visible = false
@@ -73,7 +83,7 @@ margin_left = -252.0
 margin_top = -360.0
 margin_right = 252.0
 margin_bottom = 360.0
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
 custom_colors/font_color_shadow = Color( 0.101961, 0.109804, 0.172549, 1 )
 custom_constants/shadow_offset_y = 5
@@ -103,7 +113,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 margin_top = -24.0
 margin_bottom = 24.0
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
 custom_colors/font_color_shadow = Color( 0.2, 0.235294, 0.341176, 1 )
 custom_constants/shadow_offset_y = 5
@@ -118,7 +128,7 @@ margin_left = 372.004
 margin_top = 88.1509
 margin_right = 452.004
 margin_bottom = 104.151
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 text = "Time:"
 
 [node name="Score" type="Label" parent="Finished"]
@@ -126,7 +136,7 @@ margin_left = 374.071
 margin_top = 426.264
 margin_right = 470.071
 margin_bottom = 442.264
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 text = "Score:"
 
 [node name="Next" type="Button" parent="Finished"]
@@ -137,7 +147,7 @@ margin_left = 641.797
 margin_top = -304.821
 margin_right = -423.203
 margin_bottom = -240.821
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color_disabled = Color( 0.337255, 0.423529, 0.52549, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.101961, 0.109804, 0.172549, 1 )
@@ -152,13 +162,13 @@ margin_bottom = 14.0
 rect_scale = Vector2( 1.00001, 1.08 )
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.580392, 0.690196, 0.760784, 1 )
 custom_colors/font_outline_modulate = Color( 0.337255, 0.423529, 0.52549, 1 )
 custom_colors/font_color_shadow = Color( 0.337255, 0.423529, 0.52549, 1 )
 text = "NEXT"
 
 [node name="PlayAccept" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
+stream = ExtResource( 7 )
 bus = "SFX"
 [connection signal="pressed" from="Finished/Next" to="." method="_on_Back_pressed"]

@@ -3,10 +3,10 @@ extends Spatial
 onready var player = get_node("/root/World/Player")
 
 func _ready():
-	$Anim.play("fruit")
+	$Anim.play("peanut")
 
 func _on_Area_body_entered(body):
 	if(player == body):
 		queue_free()
-		player.score += 1
+		player.peanut = true
 		player.get_node("CollectiblesSound").play()

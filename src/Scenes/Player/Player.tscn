@@ -20,15 +20,15 @@ material = ExtResource( 2 )
 [sub_resource type="SphereShape" id=2]
 radius = 5.17999
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="SpatialMaterial" id=3]
 flags_unshaded = true
 params_cull_mode = 1
 params_grow = true
 params_grow_amount = 0.01
 albedo_color = Color( 0.101961, 0.109804, 0.172549, 1 )
 
-[sub_resource type="ShaderMaterial" id=5]
-next_pass = SubResource( 4 )
+[sub_resource type="ShaderMaterial" id=4]
+next_pass = SubResource( 3 )
 shader = ExtResource( 7 )
 shader_param/use_shade = false
 shader_param/use_specular = false
@@ -48,14 +48,14 @@ shader_param/rim_threshold = 0.0
 shader_param/rim_spread = 0.0
 shader_param/rim_softness = 0.0
 
-[sub_resource type="SphereMesh" id=3]
-material = SubResource( 5 )
+[sub_resource type="SphereMesh" id=5]
+material = SubResource( 4 )
 radius = 0.2
 height = 0.4
 radial_segments = 6
 rings = 6
 
-[sub_resource type="Curve" id=8]
+[sub_resource type="Curve" id=6]
 min_value = 0.5
 max_value = 2.0
 _data = [ Vector2( 0.00799196, 0.54215 ), 0.0, 0.0, 0, 0, Vector2( 1, 1.2665 ), 0.0, 0.0, 0, 0 ]
@@ -80,7 +80,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.74849, 0 )
 transform = Transform( -1, 0, -8.74228e-008, -2.46229e-008, 0.959516, 0.281653, 8.38836e-008, 0.281653, -0.959516, 0, 5.96519, -11.7937 )
 current = true
 fov = 90.0
-far = 400.0
+far = 600.0
 script = ExtResource( 3 )
 
 [node name="Hamster" type="MeshInstance" parent="."]
@@ -121,7 +121,7 @@ cast_to = Vector3( 0, -8, 0 )
 
 [node name="DetectIfFalling" type="RayCast" parent="."]
 enabled = true
-cast_to = Vector3( 0, -30, 0 )
+cast_to = Vector3( 0, -10, 0 )
 
 [node name="CPUParticles" type="CPUParticles" parent="."]
 transform = Transform( 1.48512, 0.0102492, -0.0023196, 0, -0.327829, -1.44852, -0.0105084, 1.44848, -0.327821, 0, -3.86333, 0.514925 )
@@ -131,7 +131,7 @@ speed_scale = 0.5
 explosiveness = 0.18
 randomness = 0.5
 local_coords = false
-mesh = SubResource( 3 )
+mesh = SubResource( 5 )
 emission_shape = 3
 emission_points = PoolVector3Array( -0.5, 0, 0, 0, 0, 0, 0.5, 0, 0 )
 flag_rotate_y = true
@@ -141,7 +141,7 @@ initial_velocity = 0.0
 radial_accel = 1.0
 angle = 18.0
 scale_amount = 2.0
-scale_amount_curve = SubResource( 8 )
+scale_amount_curve = SubResource( 6 )
 color_ramp = SubResource( 7 )
 
 [node name="Animation" type="AnimationPlayer" parent="."]

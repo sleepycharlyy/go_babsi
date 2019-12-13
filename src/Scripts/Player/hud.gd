@@ -15,6 +15,7 @@ func _process(d):
 	var fps = Engine.get_frames_per_second()
 	#get_node("Debug").set_text("x:" + str(x) + " y:" + str(y) + " z:" + str(z) + " fps:" + str(fps))
 	get_node("Score").set_text("x " + str(player.score))
+	get_node("Peanut").visible = player.peanut
 	get_node("Time").set_text(player.str_elapsed) 
 		
 	
