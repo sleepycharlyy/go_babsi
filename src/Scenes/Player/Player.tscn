@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/Player/player.gd" type="Script" id=1]
 [ext_resource path="res://Materials/Player/transparent.material" type="Material" id=2]
@@ -6,18 +6,63 @@
 [ext_resource path="res://Assets/Obj/new_hamster.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://Materials/Player/white.material" type="Material" id=5]
 [ext_resource path="res://Materials/Player/black.material" type="Material" id=6]
-[ext_resource path="res://Animations/player.anim" type="Animation" id=7]
-[ext_resource path="res://Audio/SFX/fall.wav" type="AudioStream" id=8]
-[ext_resource path="res://Audio/SFX/spawn.wav" type="AudioStream" id=9]
-[ext_resource path="res://Audio/SFX/collectable.wav" type="AudioStream" id=10]
-[ext_resource path="res://Audio/SFX/jump.wav" type="AudioStream" id=11]
-[ext_resource path="res://Audio/SFX/accept.wav" type="AudioStream" id=12]
+[ext_resource path="res://Shaders/cel.shader" type="Shader" id=7]
+[ext_resource path="res://Animations/player.anim" type="Animation" id=8]
+[ext_resource path="res://Audio/SFX/fall.wav" type="AudioStream" id=9]
+[ext_resource path="res://Audio/SFX/spawn.wav" type="AudioStream" id=10]
+[ext_resource path="res://Audio/SFX/collectable.wav" type="AudioStream" id=11]
+[ext_resource path="res://Audio/SFX/jump.wav" type="AudioStream" id=12]
+[ext_resource path="res://Audio/SFX/accept.wav" type="AudioStream" id=13]
 
 [sub_resource type="SphereMesh" id=1]
 material = ExtResource( 2 )
 
 [sub_resource type="SphereShape" id=2]
 radius = 5.17999
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_unshaded = true
+params_cull_mode = 1
+params_grow = true
+params_grow_amount = 0.01
+albedo_color = Color( 0.101961, 0.109804, 0.172549, 1 )
+
+[sub_resource type="ShaderMaterial" id=5]
+next_pass = SubResource( 4 )
+shader = ExtResource( 7 )
+shader_param/use_shade = false
+shader_param/use_specular = false
+shader_param/use_rim = false
+shader_param/base_use_light_color = false
+shader_param/specular_use_light_color = false
+shader_param/rim_use_light_color = false
+shader_param/base_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+shader_param/shade_color = Color( 0.337255, 0.423529, 0.52549, 1 )
+shader_param/specular_tint = Color( 0.5, 0.5, 0.5, 1 )
+shader_param/rim_tint = Color( 0.5, 0.5, 0.5, 1 )
+shader_param/shade_threshold = 0.106
+shader_param/shade_softness = 0.0
+shader_param/specular_threshold = 0.0
+shader_param/specular_softness = 0.0
+shader_param/rim_threshold = 0.0
+shader_param/rim_spread = 0.0
+shader_param/rim_softness = 0.0
+
+[sub_resource type="SphereMesh" id=3]
+material = SubResource( 5 )
+radius = 0.2
+height = 0.4
+radial_segments = 6
+rings = 6
+
+[sub_resource type="Curve" id=8]
+min_value = 0.5
+max_value = 2.0
+_data = [ Vector2( 0.00799196, 0.54215 ), 0.0, 0.0, 0, 0, Vector2( 1, 1.2665 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.225166, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1 )
 
 [node name="Player" type="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.177, 0 )
@@ -55,16 +100,6 @@ material/8 = ExtResource( 5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.00407e-005, 0 )
 shape = SubResource( 2 )
 
-[node name="DetectCollectibles" type="RayCast" parent="."]
-enabled = true
-cast_to = Vector3( 0, -2, 7 )
-collision_mask = 2050
-
-[node name="DetectFruits" type="RayCast" parent="."]
-enabled = true
-cast_to = Vector3( 0, 0, 7 )
-collision_mask = 2050
-
 [node name="DetectJumpPad" type="RayCast" parent="."]
 enabled = true
 cast_to = Vector3( 0, -6, 0 )
@@ -80,25 +115,50 @@ enabled = true
 cast_to = Vector3( 0, -6, 0 )
 collision_mask = 16
 
+[node name="DetectGround" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, -6, 0 )
+
+[node name="CPUParticles" type="CPUParticles" parent="."]
+transform = Transform( 1.48512, 0.0102492, -0.0023196, 0, -0.327829, -1.44852, -0.0105084, 1.44848, -0.327821, 0, -3.86333, 0.514925 )
+amount = 3
+lifetime = 0.25
+speed_scale = 0.5
+explosiveness = 0.18
+randomness = 0.5
+local_coords = false
+mesh = SubResource( 3 )
+emission_shape = 3
+emission_points = PoolVector3Array( -0.5, 0, 0, 0, 0, 0, 0.5, 0, 0 )
+flag_rotate_y = true
+spread = 173.93
+gravity = Vector3( 0, 0, -7 )
+initial_velocity = 0.0
+radial_accel = 1.0
+angle = 18.0
+scale_amount = 2.0
+scale_amount_curve = SubResource( 8 )
+color_ramp = SubResource( 7 )
+
 [node name="Animation" type="AnimationPlayer" parent="."]
-anims/player = ExtResource( 7 )
+anims/player = ExtResource( 8 )
 
 [node name="OutOfBoundsSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
-bus = "SFX"
-
-[node name="SpawnSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 bus = "SFX"
 
-[node name="CollectiblesSound" type="AudioStreamPlayer" parent="."]
+[node name="SpawnSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
 bus = "SFX"
 
-[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+[node name="CollectiblesSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 bus = "SFX"
 
-[node name="FinishLevelSound" type="AudioStreamPlayer" parent="."]
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
+bus = "SFX"
+
+[node name="FinishLevelSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
 bus = "SFX"

@@ -5,6 +5,8 @@ onready var anim = get_node("Animation");
 var scene_path_to_load
 
 func _ready():
+	get_tree().paused = false;
+	
 	#focus start button
 	$GUI/Menu/Buttons/StartButton.grab_focus()
 	

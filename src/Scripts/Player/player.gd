@@ -22,6 +22,7 @@ var time_now = 0
 var str_elapsed = "00 : 00"
 
 func _ready():
+	
 	set_physics_process(true)
 	
 	anim_player = get_node("Animation")
@@ -49,15 +50,6 @@ func _physics_process(d):
 	vel.y -= grav
 	
 	#raycast (detect ground)
-	#collectibles (layer 2)
-	if $DetectCollectibles.is_colliding():
-		$DetectCollectibles.get_collider().queue_free()
-		score += 1
-		$CollectiblesSound.play()
-	if $DetectFruits.is_colliding():
-		$DetectFruits.get_collider().queue_free()
-		score += 1
-		$CollectiblesSound.play()
 	#jumppad (layer 3)
 	if $DetectJumpPad.is_colliding():
 		vel.y += jump_power
@@ -82,8 +74,12 @@ func _physics_process(d):
 	if $DetectGoal.is_colliding():
 		$FinishLevelSound.play()
 		emit_signal("level_finished")	
-		#get_tree().change_scene("res://Scenes/Levels/Titlescreen/")
-	
+	#detect ground (layer 1)
+	if $DetectGround.is_colliding(): #particles
+		$CPUParticles.emitting = true
+	else:
+		$CPUParticles.emitting = false
+
 
 	
 	#check if out of bounds
@@ -97,6 +93,7 @@ func _physics_process(d):
 	
 	#move player
 	vel = move_and_slide(vel,Vector3(0,1,0), 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
+	
 	
 func _process(d):
 	#time

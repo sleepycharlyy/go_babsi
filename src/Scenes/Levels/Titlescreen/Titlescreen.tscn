@@ -224,7 +224,6 @@ mesh = SubResource( 2 )
 material/0 = ExtResource( 10 )
 
 [node name="Ground" type="Spatial" parent="BG"]
-editor/display_folded = true
 
 [node name="GroundMesh" type="MeshInstance" parent="BG/Ground"]
 transform = Transform( 58.0279, 0, 0, 0, 1, -8.74228e-008, 0, 5.86019e-006, 67.033, 0, -6.96645, 0 )
