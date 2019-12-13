@@ -72,11 +72,12 @@ shadow_enabled = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 38.4034, 1.02079 )
 
 [node name="Hud" parent="." instance=ExtResource( 2 )]
-scene_to_switch_to = "res://Scenes/Levels/Titlescreen/Level2.tscn"
+scene_to_switch_to = "res://Scenes/Levels/Level2.tscn"
 
 [node name="PlayMusic" parent="." instance=ExtResource( 3 )]
 
 [node name="BG" type="Spatial" parent="."]
+editor/display_folded = true
 
 [node name="Level1" type="StaticBody" parent="BG"]
 
@@ -672,18 +673,18 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.2289, 23.0673, 71.4909 )
 [node name="Stones2" parent="BG/Objects/Stones2" instance=ExtResource( 22 )]
 transform = Transform( 0.794739, 0, -0.606951, 0, 1, 0, 0.606951, 0, 0.794739, 58.226, 48.9065, -389.245 )
 
-[node name="Cloud" parent="." instance=ExtResource( 23 )]
+[node name="Cloud" parent="BG" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -298.333, 159.157, 18.666 )
 
-[node name="Cloud3" parent="." instance=ExtResource( 23 )]
+[node name="Cloud3" parent="BG" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 291.691, 159.157, 53.2944 )
 
-[node name="Cloud4" parent="." instance=ExtResource( 23 )]
+[node name="Cloud4" parent="BG" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 343.569, 159.157, -410.483 )
 
-[node name="Cloud2" parent="." instance=ExtResource( 23 )]
+[node name="Cloud2" parent="BG" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -112.759, 159.157, -521.758 )
 
-[node name="Peanut" parent="." instance=ExtResource( 24 )]
+[node name="Peanut" parent="BG" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3439, 8.70288, -244.949 )
 [connection signal="level_finished" from="Player" to="Hud" method="_on_Player_level_finished"]

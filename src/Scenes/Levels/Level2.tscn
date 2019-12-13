@@ -1,8 +1,8 @@
 [gd_scene load_steps=29 format=2]
 
-[ext_resource path="res://Scenes/Objects/Rain.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player/Hud.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Objects/Rain.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Objects/Grass.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Objects/Cloud.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Materials/green.material" type="Material" id=6]
@@ -52,19 +52,19 @@ material = ExtResource( 6 )
 
 [node name="World" type="Spatial"]
 
-[node name="Rain" parent="." instance=ExtResource( 1 )]
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( -0.984486, -0.132768, 0.114719, -0.101929, 0.964908, 0.241997, -0.142823, 0.226549, -0.963471, 60.7806, 50.0709, -97.6597 )
+light_energy = 0.5
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+
+[node name="Hud" parent="." instance=ExtResource( 2 )]
+
+[node name="Rain" parent="." instance=ExtResource( 3 )]
 angular_velocity = 0.030303
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
-
-[node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( -0.984486, -0.132769, 0.114719, -0.101929, 0.964908, 0.241997, -0.142823, 0.226549, -0.963471, 60.7806, 50.0709, -97.6597 )
-light_energy = 0.5
-
-[node name="Hud" parent="." instance=ExtResource( 2 )]
-
-[node name="Player" parent="." instance=ExtResource( 3 )]
 
 [node name="BG" type="Spatial" parent="."]
 
@@ -413,7 +413,6 @@ mesh = SubResource( 4 )
 material/0 = ExtResource( 9 )
 
 [node name="Box14" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
 transform = Transform( 56.2748, 0, 0, 0, 6.02813, 0, 0, 0, 23.5604, -14.5503, 22.9985, 337.964 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box14"]
@@ -437,10 +436,10 @@ mesh = SubResource( 4 )
 material/0 = ExtResource( 6 )
 
 [node name="Box24" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
 transform = Transform( 32.1192, 0, 0, 0, 2.85475, 0, 0, 0, 23.8283, -18.4688, -17.5271, 367.46 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box24"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box24"]
@@ -462,24 +461,22 @@ mesh = SubResource( 4 )
 material/0 = ExtResource( 6 )
 
 [node name="Box25" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
-transform = Transform( 14.0383, 0, 0, 0, 6.02813, 0, 0, 0, 15.9778, -192.769, -6.80398, 215.471 )
+transform = Transform( 14.0383, 0, 0, 0, 6.02813, 0, 0, 0, 15.9778, -192.769, -6.80398, 209.366 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box25"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.792, 0.264, 0, -2.13 )
 shape = SubResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box25"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.791622, 0.261807, -3.57628e-007, -2.11863 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.791622, 0.261806, -3.57628e-007, -2.11863 )
 mesh = SubResource( 4 )
 material/0 = ExtResource( 6 )
 
 [node name="Box26" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
 transform = Transform( 24.0329, 0, 0, 0, 6.02813, 0, 0, 0, 15.9778, -138.786, -6.80398, 215.471 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box26"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.792, 0.264, 0, -2.13 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.792, 0.262, 0, -2.545 )
 shape = SubResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box26"]
@@ -525,6 +522,7 @@ material/0 = ExtResource( 9 )
 transform = Transform( 27.3241, 0, 0, 0, 6.02813, 0, 0, 0, 13.5803, -1.21265, 22.9985, 222.301 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box15"]
+transform = Transform( 1.558, 0, 0, 0, 1, 0, 0, 0, 1.629, 0, 0, 0.653 )
 shape = SubResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box15"]
@@ -533,10 +531,9 @@ mesh = SubResource( 4 )
 material/0 = ExtResource( 6 )
 
 [node name="Interactive" type="Spatial" parent="BG"]
-editor/display_folded = true
 
 [node name="BoostPad8" parent="BG/Interactive" instance=ExtResource( 10 )]
-transform = Transform( -1.62921e-007, 0, 0.999998, 0, 1, 0, -1, 0, -1.6292e-007, -184.173, -0.522491, 181.438 )
+transform = Transform( -1.62921e-007, 0, 0.999998, 0, 1, 0, -1, 0, -1.6292e-007, -184.173, -0.522491, 171.486 )
 
 [node name="JumpPad" parent="BG/Interactive" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.0207, 1.12371, 92.0745 )
@@ -737,7 +734,6 @@ mesh = SubResource( 5 )
 material/0 = null
 
 [node name="Peanut" parent="BG" instance=ExtResource( 19 )]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.49858, -11.6072, 366.94 )
 
 [node name="Fruit" parent="BG/Peanut" instance=ExtResource( 20 )]
@@ -843,13 +839,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -77.8459, 34.2064, -28.5407 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -101.812, 13.0073, -29.0974 )
 
 [node name="Fruit2" parent="BG/Peanut" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.306369, -0.0958223, 12.0898 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.68791, -0.0958223, 14.5006 )
 
 [node name="Fruit3" parent="BG/Peanut" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.306369, -0.0958223, -11.6946 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.07838, -0.0958223, -16.3077 )
 
 [node name="Palm" parent="BG" instance=ExtResource( 21 )]
 transform = Transform( -0.998712, -0.0162933, 0.0480419, -0.0155649, 0.999759, 0.0154971, -0.0482828, 0.0147294, -0.998725, -224.616, -15.2075, 294.974 )
 
 [node name="PlayMusic" parent="." instance=ExtResource( 22 )]
 stream = ExtResource( 23 )
+[connection signal="level_finished" from="Player" to="Hud" method="_on_Player_level_finished"]

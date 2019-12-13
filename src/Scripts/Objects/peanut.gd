@@ -3,7 +3,7 @@ extends Spatial
 onready var player = get_node("/root/World/Player")
 
 func _ready():
-	$Anim.play("peanut")
+	$Aniam.play("peanut")
 
 func _on_Area_body_entered(body):
 	if(player == body):

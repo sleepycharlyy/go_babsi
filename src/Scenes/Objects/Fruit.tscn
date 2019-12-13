@@ -20,7 +20,7 @@ material/0 = ExtResource( 3 )
 material/1 = ExtResource( 4 )
 
 [node name="Area" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.937757, 0 )
+transform = Transform( 0.49359, 0, -7.93285e-009, 0, 0.820188, 0, -7.93285e-009, 0, 0.538961, 0, 0.937757, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1.41872, 0 )
