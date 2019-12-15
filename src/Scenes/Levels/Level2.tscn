@@ -1,33 +1,39 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Player/Hud.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Scenery/Rain.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Levels/Enviroments/Level2_sky.tres" type="ProceduralSky" id=4]
-[ext_resource path="res://Scenes/Objects/Grass.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Scenery/Cloud.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Materials/green.material" type="Material" id=7]
-[ext_resource path="res://Materials/grey.tres" type="Material" id=8]
-[ext_resource path="res://Materials/red.material" type="Material" id=9]
-[ext_resource path="res://Materials/blue.material" type="Material" id=10]
-[ext_resource path="res://Scenes/Interactive/BoostPad.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/Interactive/JumpPad.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/Interactive/MovingPlatform.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scenes/Interactive/Goal.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scenes/Objects/Ladder.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scenes/Objects/House.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scenes/Objects/Stones.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Assets/Obj/dirthill.obj" type="ArrayMesh" id=18]
-[ext_resource path="res://Materials/biggeroutline_yellow.material" type="Material" id=19]
-[ext_resource path="res://Scenes/Collectibles/Fruit.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Scenes/Collectibles/Peanut.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Scenes/Objects/Pinetree.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Scenes/Misc/PlayMusic.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Audio/Music/rain.ogg" type="AudioStream" id=24]
+[ext_resource path="res://Scripts/Player/hud.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Fonts/font_30.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/Textures/fruit.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/peanut.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Fonts/font_48.res" type="DynamicFont" id=6]
+[ext_resource path="res://Assets/Fonts/font_16.res" type="DynamicFont" id=7]
+[ext_resource path="res://Audio/SFX/accept.wav" type="AudioStream" id=8]
+[ext_resource path="res://Scenes/Scenery/Rain.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Levels/Enviroments/Level2_sky.tres" type="ProceduralSky" id=10]
+[ext_resource path="res://Scenes/Objects/Grass.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Scenery/Cloud.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Materials/green.material" type="Material" id=13]
+[ext_resource path="res://Materials/grey.tres" type="Material" id=14]
+[ext_resource path="res://Materials/red.material" type="Material" id=15]
+[ext_resource path="res://Materials/blue.material" type="Material" id=16]
+[ext_resource path="res://Scenes/Interactive/BoostPad.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Interactive/JumpPad.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Interactive/MovingPlatform.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/Interactive/Goal.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scenes/Objects/Ladder.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenes/Objects/House.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scenes/Objects/Stones.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Assets/Obj/dirthill.obj" type="ArrayMesh" id=24]
+[ext_resource path="res://Materials/biggeroutline_yellow.material" type="Material" id=25]
+[ext_resource path="res://Scenes/Collectibles/Fruit.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Scenes/Collectibles/Peanut.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Scenes/Objects/Pinetree.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Scenes/Misc/PlayMusic.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Audio/Music/rain.ogg" type="AudioStream" id=30]
 
 [sub_resource type="Environment" id=1]
 background_mode = 2
-background_sky = ExtResource( 4 )
+background_sky = ExtResource( 10 )
 background_energy = 0.9
 ambient_light_color = Color( 1, 1, 1, 1 )
 fog_enabled = true
@@ -37,7 +43,7 @@ fog_sun_color = Color( 0.580392, 0.690196, 0.760784, 1 )
 [sub_resource type="BoxShape" id=2]
 
 [sub_resource type="CubeMesh" id=3]
-material = ExtResource( 7 )
+material = ExtResource( 13 )
 
 [sub_resource type="CylinderMesh" id=4]
 
@@ -49,189 +55,361 @@ light_energy = 0.5
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 
-[node name="Hud" parent="." instance=ExtResource( 2 )]
-scene_to_switch_to = "res://Scenes/Levels/Level3.tscn"
+[node name="Hud" type="CanvasLayer" parent="."]
+pause_mode = 2
+layer = 10
+script = ExtResource( 2 )
 
-[node name="Rain" parent="." instance=ExtResource( 3 )]
+[node name="Debug" type="Label" parent="Hud"]
+visible = false
+margin_left = 22.45
+margin_top = 184.105
+margin_right = 127.45
+margin_bottom = 249.105
+text = "x: 0
+y: 0
+z: 0
+fps: 0"
+
+[node name="Score" type="Label" parent="Hud"]
+margin_left = 65.8428
+margin_top = 36.7388
+margin_right = 377.843
+margin_bottom = 84.7388
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 0.803922, 0.458824, 1 )
+custom_colors/font_color_shadow = Color( 0.101961, 0.109804, 0.172549, 1 )
+custom_constants/shadow_offset_y = 2
+text = "x 0"
+
+[node name="TextureRect" type="TextureRect" parent="Hud/Score"]
+margin_left = -46.6321
+margin_top = -12.9146
+margin_right = -2.63209
+margin_bottom = 33.0854
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+
+[node name="Peanut" type="TextureRect" parent="Hud"]
+margin_left = 242.45
+margin_top = 48.2327
+margin_right = 286.45
+margin_bottom = 94.2327
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+
+[node name="Time" type="Label" parent="Hud"]
+margin_left = 34.2659
+margin_top = 77.3459
+margin_right = 346.266
+margin_bottom = 125.346
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.937255, 0.490196, 0.341176, 1 )
+custom_colors/font_color_shadow = Color( 0.101961, 0.109804, 0.172549, 1 )
+custom_constants/shadow_offset_y = 2
+text = "00 : 00"
+
+[node name="Pause" type="Control" parent="Hud"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="Hud/Pause"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.101961, 0.109804, 0.172549, 0.854902 )
+
+[node name="Label" type="Label" parent="Hud/Pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -252.0
+margin_top = -360.0
+margin_right = 252.0
+margin_bottom = 360.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+custom_colors/font_color_shadow = Color( 0.101961, 0.109804, 0.172549, 1 )
+custom_constants/shadow_offset_y = 5
+text = "GAME PAUSED"
+align = 1
+valign = 1
+
+[node name="Finished" type="Control" parent="Hud"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="Hud/Finished"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -386.708
+margin_top = -310.5
+margin_right = 389.292
+margin_bottom = 310.5
+color = Color( 0.101961, 0.109804, 0.172549, 1 )
+
+[node name="Finished" type="Label" parent="Hud/Finished"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -24.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+custom_colors/font_color_shadow = Color( 0.2, 0.235294, 0.341176, 1 )
+custom_constants/shadow_offset_y = 5
+text = "GAME FINISHED"
+align = 1
+valign = 1
+
+[node name="Time" type="Label" parent="Hud/Finished"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 372.004
+margin_top = 88.1509
+margin_right = 452.004
+margin_bottom = 104.151
+custom_fonts/font = ExtResource( 7 )
+text = "Time:"
+
+[node name="Score" type="Label" parent="Hud/Finished"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 374.071
+margin_top = 66.264
+margin_right = 470.071
+margin_bottom = 82.264
+custom_fonts/font = ExtResource( 7 )
+text = "Score:"
+
+[node name="Next" type="Button" parent="Hud/Finished"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 641.797
+margin_top = -304.821
+margin_right = -423.203
+margin_bottom = -240.821
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color_disabled = Color( 0.337255, 0.423529, 0.52549, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.101961, 0.109804, 0.172549, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+flat = true
+
+[node name="Label" type="Label" parent="Hud/Finished/Next"]
+margin_left = 13.0
+margin_top = 10.0
+margin_right = 40.0
+margin_bottom = 14.0
+rect_scale = Vector2( 1.00001, 1.08 )
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0.580392, 0.690196, 0.760784, 1 )
+custom_colors/font_outline_modulate = Color( 0.337255, 0.423529, 0.52549, 1 )
+custom_colors/font_color_shadow = Color( 0.337255, 0.423529, 0.52549, 1 )
+text = "BACK"
+
+[node name="Peanut" type="TextureRect" parent="Hud/Finished"]
+margin_left = 378.087
+margin_top = 483.316
+margin_right = 422.087
+margin_bottom = 529.316
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+
+[node name="PlayAccept" type="AudioStreamPlayer" parent="Hud"]
+stream = ExtResource( 8 )
+bus = "SFX"
+
+[node name="Rain" parent="." instance=ExtResource( 9 )]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
 
 [node name="BG" type="Spatial" parent="."]
 
-[node name="Grass" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -185.209, -0.940794, 82.8521 )
 
-[node name="Grass5" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass5" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.996889, 0, -0.0788148, 0, 1, 0, 0.0788148, 0, 0.996889, -19.9827, 1.0982, 91.9797 )
 
-[node name="Grass7" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass7" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.996889, 0, -0.0788148, 0, 1, 0, 0.0788148, 0, 0.996889, 24.4844, 27.207, 68.32 )
 
-[node name="Grass8" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass8" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.996889, 0, -0.0788148, 0, 1, 0, 0.0788148, 0, 0.996889, -29.4213, 27.207, 123.436 )
 
-[node name="Grass9" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass9" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.956917, 0, 0.290363, 0, 1, 0, -0.290363, 0, 0.956917, 26.0077, 27.207, 136.937 )
 
-[node name="Grass14" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass14" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.869971, 0, 0.493104, 0, 1, 0, -0.493104, 0, 0.869971, 31.7921, 28.6186, 219.846 )
 
-[node name="Grass15" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass15" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.643567, 0, 0.765389, 0, 1, 0, -0.765389, 0, 0.643567, -16.7955, 28.6186, 247.385 )
 
-[node name="Grass16" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass16" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.643567, 0, 0.765389, 0, 1, 0, -0.765389, 0, 0.643567, -35.0442, 28.6186, 234.265 )
 
-[node name="Grass17" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass17" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.643567, 0, 0.765389, 0, 1, 0, -0.765389, 0, 0.643567, -57.9715, 28.6186, 320.692 )
 
-[node name="Grass21" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass21" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.643567, 0, 0.765389, 0, 1, 0, -0.765389, 0, 0.643567, -180.49, -14.9273, 368.441 )
 
-[node name="Grass18" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass18" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.643567, 0, 0.765389, 0, 1, 0, -0.765389, 0, 0.643567, 5.26759, 28.6186, 354.857 )
 
-[node name="Grass22" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass22" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.23199, 0, 0.972718, 0, 1, 0, -0.972718, 0, 0.23199, -225.576, -14.9273, 346.33 )
 
-[node name="Grass23" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass23" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.500178, 0, 0.865923, 0, 1, 0, -0.865923, 0, 0.500178, -217.283, -14.9273, 336.229 )
 
-[node name="Grass24" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass24" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.782541, 0, 0.6226, 0, 1, 0, -0.6226, 0, 0.782541, -104.736, -14.9273, 306.348 )
 
-[node name="Grass25" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass25" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.315299, 0, 0.948992, 0, 1, 0, -0.948992, 0, 0.315299, -121.536, -14.9273, 300.831 )
 
-[node name="Grass26" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass26" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( -0.0866868, 0, 0.996235, 0, 1, 0, -0.996235, 0, -0.0866868, -161.716, -14.9273, 327.812 )
 
-[node name="Grass27" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass27" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( -0.0866868, 0, 0.996235, 0, 1, 0, -0.996235, 0, -0.0866868, -228.741, -14.9273, 296.696 )
 
-[node name="Grass31" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass31" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( -0.323034, -0.0104389, 0.94633, -0.033034, 0.999454, -0.000251354, -0.94581, -0.0313422, -0.323203, -198.807, -0.713901, 171.994 )
 
-[node name="Grass32" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass32" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( -0.323034, -0.0104389, 0.94633, -0.033034, 0.999454, -0.000251354, -0.94581, -0.0313422, -0.323203, -111.498, -1.09055, 183.439 )
 
-[node name="Grass33" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass33" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( -0.824469, 0.0467428, 0.563973, 0.0359335, 0.998896, -0.0302588, -0.564765, -0.00468192, -0.825239, -148.314, -0.748932, 171.955 )
 
-[node name="Grass34" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass34" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( -0.961725, 0.0467428, 0.269999, 0.0437355, 0.998896, -0.0171468, -0.270503, -0.00468192, -0.962708, -140.416, -0.850762, 163.854 )
 
-[node name="Grass28" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass28" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.431221, 0, 0.902246, 0, 1, 0, -0.902246, 0, 0.431221, -45.6026, -14.9273, 381.284 )
 
-[node name="Grass29" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass29" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.0192873, 0, 0.999814, 0, 1, 0, -0.999814, 0, 0.0192873, 6.62973, -14.9273, 357.175 )
 
-[node name="Grass30" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass30" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( -0.869993, -0.0802537, 0.486488, -0.0612527, 0.996613, 0.0548676, -0.489244, 0.0179357, -0.871962, 3.51254, -14.7502, 346.31 )
 
-[node name="Grass19" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass19" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.202972, 0, 0.979184, 0, 1, 0, -0.979184, 0, 0.202972, 29.4727, 28.6186, 326.07 )
 
-[node name="Grass20" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass20" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.864646, 0, 0.502381, 0, 1, 0, -0.502381, 0, 0.864646, 19.9835, 28.6186, 321.575 )
 
-[node name="Grass10" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass10" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.956917, 0, 0.290363, 0, 1, 0, -0.290363, 0, 0.956917, -26.8082, 0.884536, 38.0653 )
 
-[node name="Grass11" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass11" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.992802, 0, -0.119764, 0, 1, 0, 0.119764, 0, 0.992802, -19.6161, 0.884536, -5.58382 )
 
-[node name="Grass13" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass13" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.76505, 0.0125428, -0.643848, -0.0163925, 0.999866, -4.42662e-010, 0.643762, 0.0105543, 0.765153, -11.3504, 0.884536, -18.1531 )
 
-[node name="Grass12" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass12" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.884688, 0.0997679, 0.455382, -0.102589, 0.99455, -0.0185876, -0.454754, -0.0302731, 0.890102, 27.8395, 0.884536, -9.47143 )
 
-[node name="Grass6" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass6" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.548772, 0, 0.835972, 0, 1, 0, -0.835972, 0, 0.548772, 4.90189, 1.0982, 106.153 )
 
-[node name="Grass3" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass3" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.926593, 1.16415e-010, 0.376065, -0.0013921, 0.999993, 0.00343002, -0.376063, -0.00370175, 0.926587, -205.53, -0.916702, 107.24 )
 
-[node name="Grass4" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass4" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.916169, 0.1386, 0.376065, -0.150955, 0.988535, 0.00343002, -0.371278, -0.0599115, 0.926587, -153.206, -0.647016, 78.9087 )
 
-[node name="Grass2" parent="BG" instance=ExtResource( 5 )]
+[node name="Grass2" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.887226, 0.0574268, -0.457746, 0, 0.992222, 0.12448, 0.461335, -0.110442, 0.880326, -193.177, -0.940794, 74.404 )
 
 [node name="Cloud9" type="Spatial" parent="BG"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25427, -9.11359, -6.93118 )
 
-[node name="Cloud" parent="BG/Cloud9" instance=ExtResource( 6 )]
+[node name="Cloud" parent="BG/Cloud9" instance=ExtResource( 12 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 141.738, 0 )
 
-[node name="Cloud9" parent="BG/Cloud9" instance=ExtResource( 6 )]
+[node name="Cloud9" parent="BG/Cloud9" instance=ExtResource( 12 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 141.738, 250.851 )
 
-[node name="Cloud10" parent="BG/Cloud9" instance=ExtResource( 6 )]
+[node name="Cloud10" parent="BG/Cloud9" instance=ExtResource( 12 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 110.278, 141.738, 348.434 )
 
-[node name="Cloud11" parent="BG/Cloud9" instance=ExtResource( 6 )]
+[node name="Cloud11" parent="BG/Cloud9" instance=ExtResource( 12 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -68.274, 141.738, 334.508 )
 
-[node name="Cloud12" parent="BG/Cloud9" instance=ExtResource( 6 )]
+[node name="Cloud12" parent="BG/Cloud9" instance=ExtResource( 12 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -186.924, 141.738, 316.828 )
 
-[node name="Cloud13" parent="BG/Cloud9" instance=ExtResource( 6 )]
+[node name="Cloud13" parent="BG/Cloud9" instance=ExtResource( 12 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -136.172, 141.738, 223.667 )
 
-[node name="Cloud14" parent="BG/Cloud9" instance=ExtResource( 6 )]
+[node name="Cloud14" parent="BG/Cloud9" instance=ExtResource( 12 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 135.221, 141.738, 223.667 )
 
-[node name="Cloud15" parent="BG/Cloud9" instance=ExtResource( 6 )]
+[node name="Cloud15" parent="BG/Cloud9" instance=ExtResource( 12 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -230.293, 141.738, 223.667 )
 
-[node name="Cloud16" parent="BG/Cloud9" instance=ExtResource( 6 )]
+[node name="Cloud16" parent="BG/Cloud9" instance=ExtResource( 12 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -191.25, 141.738, 142.031 )
 
-[node name="Cloud17" parent="BG/Cloud9" instance=ExtResource( 6 )]
+[node name="Cloud17" parent="BG/Cloud9" instance=ExtResource( 12 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -191.25, 141.738, 20.983 )
 
-[node name="Cloud18" parent="BG/Cloud9" instance=ExtResource( 6 )]
+[node name="Cloud18" parent="BG/Cloud9" instance=ExtResource( 12 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -242.93, 141.738, -55.0052 )
 
-[node name="Cloud19" parent="BG/Cloud9" instance=ExtResource( 6 )]
+[node name="Cloud19" parent="BG/Cloud9" instance=ExtResource( 12 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -288.577, 141.738, 86.007 )
 
-[node name="Cloud20" parent="BG/Cloud9" instance=ExtResource( 6 )]
+[node name="Cloud20" parent="BG/Cloud9" instance=ExtResource( 12 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 120.816, 141.738, 443.054 )
 
-[node name="Cloud21" parent="BG/Cloud9" instance=ExtResource( 6 )]
+[node name="Cloud21" parent="BG/Cloud9" instance=ExtResource( 12 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -93.2122, 141.738, 529.446 )
 
-[node name="Cloud22" parent="BG/Cloud9" instance=ExtResource( 6 )]
+[node name="Cloud22" parent="BG/Cloud9" instance=ExtResource( 12 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -264.15, 141.738, 442.953 )
 
-[node name="Cloud23" parent="BG/Cloud9" instance=ExtResource( 6 )]
+[node name="Cloud23" parent="BG/Cloud9" instance=ExtResource( 12 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -225.545, 141.738, -151.662 )
 
-[node name="Cloud2" parent="BG/Cloud9" instance=ExtResource( 6 )]
+[node name="Cloud2" parent="BG/Cloud9" instance=ExtResource( 12 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -25.1093, 141.738, -89.097 )
 
-[node name="Cloud4" parent="BG/Cloud9" instance=ExtResource( 6 )]
+[node name="Cloud4" parent="BG/Cloud9" instance=ExtResource( 12 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 131.133, 141.738, 7.9531 )
 
-[node name="Cloud8" parent="BG/Cloud9" instance=ExtResource( 6 )]
+[node name="Cloud8" parent="BG/Cloud9" instance=ExtResource( 12 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 131.133, 141.738, -122.529 )
 
-[node name="Cloud5" parent="BG/Cloud9" instance=ExtResource( 6 )]
+[node name="Cloud5" parent="BG/Cloud9" instance=ExtResource( 12 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -98.9761, 141.738, 72.3276 )
 
-[node name="Cloud6" parent="BG/Cloud9" instance=ExtResource( 6 )]
+[node name="Cloud6" parent="BG/Cloud9" instance=ExtResource( 12 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -51.2636, 141.738, 144.374 )
 
-[node name="Cloud7" parent="BG/Cloud9" instance=ExtResource( 6 )]
+[node name="Cloud7" parent="BG/Cloud9" instance=ExtResource( 12 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -129.543, 141.738, -85.6529 )
 
-[node name="Cloud3" parent="BG/Cloud9" instance=ExtResource( 6 )]
+[node name="Cloud3" parent="BG/Cloud9" instance=ExtResource( 12 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 77.7831, 141.738, 148.476 )
 
 [node name="Box6" type="Spatial" parent="BG"]
@@ -246,7 +424,7 @@ shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box"]
 mesh = SubResource( 3 )
-material/0 = ExtResource( 7 )
+material/0 = ExtResource( 13 )
 
 [node name="Box2" type="StaticBody" parent="BG/Box6"]
 editor/display_folded = true
@@ -257,7 +435,7 @@ shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box2"]
 mesh = SubResource( 3 )
-material/0 = ExtResource( 7 )
+material/0 = ExtResource( 13 )
 
 [node name="Box4" type="StaticBody" parent="BG/Box6"]
 editor/display_folded = true
@@ -268,7 +446,7 @@ shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box4"]
 mesh = SubResource( 3 )
-material/0 = ExtResource( 7 )
+material/0 = ExtResource( 13 )
 
 [node name="Box3" type="StaticBody" parent="BG/Box6"]
 editor/display_folded = true
@@ -279,7 +457,7 @@ shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box3"]
 mesh = SubResource( 3 )
-material/0 = ExtResource( 7 )
+material/0 = ExtResource( 13 )
 
 [node name="Box6" type="StaticBody" parent="BG/Box6"]
 editor/display_folded = true
@@ -290,7 +468,7 @@ shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box6"]
 mesh = SubResource( 3 )
-material/0 = ExtResource( 8 )
+material/0 = ExtResource( 14 )
 
 [node name="Box7" type="StaticBody" parent="BG/Box6"]
 editor/display_folded = true
@@ -301,7 +479,7 @@ shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box7"]
 mesh = SubResource( 3 )
-material/0 = ExtResource( 8 )
+material/0 = ExtResource( 14 )
 
 [node name="Box11" type="StaticBody" parent="BG/Box6"]
 editor/display_folded = true
@@ -312,7 +490,7 @@ shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box11"]
 mesh = SubResource( 3 )
-material/0 = ExtResource( 8 )
+material/0 = ExtResource( 14 )
 
 [node name="Box8" type="StaticBody" parent="BG/Box6"]
 editor/display_folded = true
@@ -323,7 +501,7 @@ shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box8"]
 mesh = SubResource( 3 )
-material/0 = ExtResource( 8 )
+material/0 = ExtResource( 14 )
 
 [node name="Box21" type="StaticBody" parent="BG/Box6"]
 editor/display_folded = true
@@ -334,7 +512,7 @@ shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box21"]
 mesh = SubResource( 3 )
-material/0 = ExtResource( 8 )
+material/0 = ExtResource( 14 )
 
 [node name="Box23" type="StaticBody" parent="BG/Box6"]
 editor/display_folded = true
@@ -345,7 +523,7 @@ shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box23"]
 mesh = SubResource( 3 )
-material/0 = ExtResource( 8 )
+material/0 = ExtResource( 14 )
 
 [node name="Box9" type="StaticBody" parent="BG/Box6"]
 editor/display_folded = true
@@ -356,7 +534,7 @@ shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box9"]
 mesh = SubResource( 3 )
-material/0 = ExtResource( 8 )
+material/0 = ExtResource( 14 )
 
 [node name="Box10" type="StaticBody" parent="BG/Box6"]
 editor/display_folded = true
@@ -367,7 +545,7 @@ shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box10"]
 mesh = SubResource( 3 )
-material/0 = ExtResource( 8 )
+material/0 = ExtResource( 14 )
 
 [node name="Box5" type="StaticBody" parent="BG/Box6"]
 editor/display_folded = true
@@ -378,7 +556,7 @@ shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box5"]
 mesh = SubResource( 3 )
-material/0 = ExtResource( 7 )
+material/0 = ExtResource( 13 )
 
 [node name="Box12" type="StaticBody" parent="BG/Box6"]
 editor/display_folded = true
@@ -389,7 +567,7 @@ shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box12"]
 mesh = SubResource( 3 )
-material/0 = ExtResource( 9 )
+material/0 = ExtResource( 15 )
 
 [node name="Box13" type="StaticBody" parent="BG/Box6"]
 editor/display_folded = true
@@ -401,7 +579,7 @@ shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box13"]
 mesh = SubResource( 3 )
-material/0 = ExtResource( 10 )
+material/0 = ExtResource( 16 )
 
 [node name="Box14" type="StaticBody" parent="BG/Box6"]
 editor/display_folded = true
@@ -412,7 +590,7 @@ shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box14"]
 mesh = SubResource( 3 )
-material/0 = ExtResource( 7 )
+material/0 = ExtResource( 13 )
 
 [node name="Box19" type="StaticBody" parent="BG/Box6"]
 editor/display_folded = true
@@ -423,7 +601,7 @@ shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box19"]
 mesh = SubResource( 3 )
-material/0 = ExtResource( 7 )
+material/0 = ExtResource( 13 )
 
 [node name="Box24" type="StaticBody" parent="BG/Box6"]
 editor/display_folded = true
@@ -434,7 +612,7 @@ shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box24"]
 mesh = SubResource( 3 )
-material/0 = ExtResource( 7 )
+material/0 = ExtResource( 13 )
 
 [node name="Box20" type="StaticBody" parent="BG/Box6"]
 editor/display_folded = true
@@ -447,7 +625,7 @@ shape = SubResource( 2 )
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box20"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.791621, 0.263915, 0, -2.13001 )
 mesh = SubResource( 3 )
-material/0 = ExtResource( 7 )
+material/0 = ExtResource( 13 )
 
 [node name="Box25" type="StaticBody" parent="BG/Box6"]
 editor/display_folded = true
@@ -460,7 +638,7 @@ shape = SubResource( 2 )
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box25"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.791622, 0.261806, -3.57628e-007, -2.11863 )
 mesh = SubResource( 3 )
-material/0 = ExtResource( 7 )
+material/0 = ExtResource( 13 )
 
 [node name="Box26" type="StaticBody" parent="BG/Box6"]
 editor/display_folded = true
@@ -473,7 +651,7 @@ shape = SubResource( 2 )
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box26"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.791622, 0.261807, -3.57628e-007, -2.54491 )
 mesh = SubResource( 3 )
-material/0 = ExtResource( 7 )
+material/0 = ExtResource( 13 )
 
 [node name="Box18" type="StaticBody" parent="BG/Box6"]
 editor/display_folded = true
@@ -485,7 +663,7 @@ shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box18"]
 mesh = SubResource( 3 )
-material/0 = ExtResource( 10 )
+material/0 = ExtResource( 16 )
 
 [node name="Box17" type="StaticBody" parent="BG/Box6"]
 editor/display_folded = true
@@ -496,7 +674,7 @@ shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box17"]
 mesh = SubResource( 3 )
-material/0 = ExtResource( 10 )
+material/0 = ExtResource( 16 )
 
 [node name="Box16" type="StaticBody" parent="BG/Box6"]
 editor/display_folded = true
@@ -507,7 +685,7 @@ shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box16"]
 mesh = SubResource( 3 )
-material/0 = ExtResource( 10 )
+material/0 = ExtResource( 16 )
 
 [node name="Box15" type="StaticBody" parent="BG/Box6"]
 editor/display_folded = true
@@ -520,340 +698,341 @@ shape = SubResource( 2 )
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box15"]
 transform = Transform( 1.55814, 0, 0, 0, 1, 0, 0, 0, 1.62925, 0, 0, 0.653286 )
 mesh = SubResource( 3 )
-material/0 = ExtResource( 7 )
+material/0 = ExtResource( 13 )
 
 [node name="Interactive" type="Spatial" parent="BG"]
 
-[node name="BoostPad8" parent="BG/Interactive" instance=ExtResource( 11 )]
+[node name="BoostPad8" parent="BG/Interactive" instance=ExtResource( 17 )]
 transform = Transform( -1.62921e-007, 0, 0.999998, 0, 1, 0, -1, 0, -1.6292e-007, -184.173, -0.522491, 171.486 )
 
-[node name="JumpPad" parent="BG/Interactive" instance=ExtResource( 12 )]
+[node name="JumpPad" parent="BG/Interactive" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.0207, 1.12371, 92.0745 )
 
-[node name="JumpPad2" parent="BG/Interactive" instance=ExtResource( 12 )]
+[node name="JumpPad2" parent="BG/Interactive" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5804, 1.12371, 46.432 )
 
-[node name="BoostPad" parent="BG/Interactive" instance=ExtResource( 11 )]
+[node name="BoostPad" parent="BG/Interactive" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.473384, 27.6088, 78.6228 )
 
-[node name="BoostPad2" parent="BG/Interactive" instance=ExtResource( 11 )]
+[node name="BoostPad2" parent="BG/Interactive" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.473384, 29.0003, 186.203 )
 
-[node name="BoostPad3" parent="BG/Interactive" instance=ExtResource( 11 )]
+[node name="BoostPad3" parent="BG/Interactive" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9763, 29.0003, 239.335 )
 
-[node name="BoostPad4" parent="BG/Interactive" instance=ExtResource( 11 )]
+[node name="BoostPad4" parent="BG/Interactive" instance=ExtResource( 17 )]
 transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 20.5104, 29.0003, 289.436 )
 
-[node name="BoostPad5" parent="BG/Interactive" instance=ExtResource( 11 )]
+[node name="BoostPad5" parent="BG/Interactive" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.4647, 29.0003, 294.639 )
 
-[node name="BoostPad6" parent="BG/Interactive" instance=ExtResource( 11 )]
+[node name="BoostPad6" parent="BG/Interactive" instance=ExtResource( 17 )]
 transform = Transform( -1, 0, -1.50996e-007, 0, 1, 0, 1.50996e-007, 0, -1, -177.826, -14.3193, 294.639 )
 
-[node name="MovingPlatform" parent="BG/Interactive" instance=ExtResource( 13 )]
+[node name="MovingPlatform" parent="BG/Interactive" instance=ExtResource( 19 )]
 transform = Transform( 27.3241, 0, 0, 0, 6.02813, 0, 0, 0, 13.5803, -176.305, -38.4498, 247.616 )
 spd = 5
 distance_y = 40
 
-[node name="MovingPlatform3" parent="BG/Interactive" instance=ExtResource( 13 )]
+[node name="MovingPlatform3" parent="BG/Interactive" instance=ExtResource( 19 )]
 editor/display_folded = true
 transform = Transform( 27.3241, 0, 0, 0, 6.02813, 0, 0, 0, 13.5803, -99.2015, -45.1269, 146.454 )
 spd = 5
 distance_y = 40
 
-[node name="BoostPad9" parent="BG/Interactive/MovingPlatform3" instance=ExtResource( 11 )]
+[node name="BoostPad9" parent="BG/Interactive/MovingPlatform3" instance=ExtResource( 17 )]
 transform = Transform( -0.0365978, 0, -5.52609e-009, 0, 0.165889, 0, 1.11188e-008, 0, -0.0736359, 0.661404, 1.04962, -0.110012 )
 
-[node name="MovingPlatform4" parent="BG/Interactive" instance=ExtResource( 13 )]
+[node name="MovingPlatform4" parent="BG/Interactive" instance=ExtResource( 19 )]
 editor/display_folded = true
 transform = Transform( 27.3241, 0, 0, 0, 6.02813, 0, 0, 0, 13.5803, -99.2015, -45.1269, 105.034 )
 spd = 6
 distance_y = 40
 
-[node name="BoostPad10" parent="BG/Interactive/MovingPlatform4" instance=ExtResource( 11 )]
+[node name="BoostPad10" parent="BG/Interactive/MovingPlatform4" instance=ExtResource( 17 )]
 transform = Transform( 7.12585e-009, 0, -0.0365976, 0, 0.165889, 0, 0.0736362, 0, 1.43374e-008, -0.719402, 1.04962, -0.314063 )
 
-[node name="MovingPlatform2" parent="BG/Interactive" instance=ExtResource( 13 )]
+[node name="MovingPlatform2" parent="BG/Interactive" instance=ExtResource( 19 )]
 editor/display_folded = true
 transform = Transform( 27.3241, 0, 0, 0, 6.02813, 0, 0, 0, 13.5803, -176.305, -46.024, 213.698 )
 spd = 6
 distance_y = 40
 
-[node name="BoostPad7" parent="BG/Interactive/MovingPlatform2" instance=ExtResource( 11 )]
+[node name="BoostPad7" parent="BG/Interactive/MovingPlatform2" instance=ExtResource( 17 )]
 transform = Transform( -0.0365978, 0, -5.52611e-009, 0, 0.165889, 0, 1.11187e-008, 0, -0.0736359, -0.704762, 1.06223, -0.123135 )
 
-[node name="Goal" parent="BG/Interactive" instance=ExtResource( 14 )]
+[node name="Goal" parent="BG/Interactive" instance=ExtResource( 20 )]
 transform = Transform( -1, -8.74228e-008, 0, 8.74228e-008, -1, 0, 0, 0, 1, -179.398, 0, 99.306 )
 
-[node name="Ladder" parent="BG" instance=ExtResource( 15 )]
+[node name="Ladder" parent="BG" instance=ExtResource( 21 )]
 transform = Transform( 1.68634, 1.65442, 0, -1.65442, 1.68634, 0, 0, 0, 2.36239, -68.0736, -18.5059, 366.2 )
 
-[node name="House2" parent="BG" instance=ExtResource( 16 )]
+[node name="House2" parent="BG" instance=ExtResource( 22 )]
 transform = Transform( -1, 0, -1.50996e-007, 0, 1, 0, 1.50996e-007, 0, -1, -142.263, 0, 428.585 )
 
-[node name="House" parent="BG" instance=ExtResource( 16 )]
+[node name="House" parent="BG" instance=ExtResource( 22 )]
 transform = Transform( -1, 0, -1.50996e-007, 0, 1, 0, 1.50996e-007, 0, -1, -14.5712, 0, 428.585 )
 
 [node name="Puddle" type="MeshInstance" parent="BG"]
 transform = Transform( 6.71249, 0, 0, 0, 1.01, 0, 0, 0, 7.10734, -18.6962, 0, 9.03473 )
-material_override = ExtResource( 10 )
+material_override = ExtResource( 16 )
 mesh = SubResource( 4 )
 material/0 = null
 
 [node name="Puddle4" type="MeshInstance" parent="BG"]
 transform = Transform( 6.71249, 0, 0, 0, 1.01, 0, 0, 0, 7.10734, -18.6962, 26.3692, 66.8667 )
-material_override = ExtResource( 10 )
+material_override = ExtResource( 16 )
 mesh = SubResource( 4 )
 material/0 = null
 
 [node name="Puddle8" type="MeshInstance" parent="BG"]
 transform = Transform( 6.71249, 0, 0, 0, 1.01, 0, 0, 0, 7.10734, 10.5365, 28.034, 221.051 )
-material_override = ExtResource( 10 )
+material_override = ExtResource( 16 )
 mesh = SubResource( 4 )
 material/0 = null
 
 [node name="Puddle9" type="MeshInstance" parent="BG"]
 transform = Transform( 10.4275, 0, 0, 0, 1.01, 0, 0, 0, 9.67911, 22.8902, 28.034, 342.212 )
-material_override = ExtResource( 10 )
+material_override = ExtResource( 16 )
 mesh = SubResource( 4 )
 material/0 = null
 
 [node name="Puddle10" type="MeshInstance" parent="BG"]
 transform = Transform( 4.01181, 0, 0, 0, 1.01, 0, 0, 0, 4.18528, -44.0852, 28.034, 327.618 )
-material_override = ExtResource( 10 )
+material_override = ExtResource( 16 )
 mesh = SubResource( 4 )
 material/0 = null
 
 [node name="Puddle11" type="MeshInstance" parent="BG"]
 transform = Transform( 6.35778, 0, 0, 0, 1.01, 0, 0, 0, 5.60813, -25.7712, 28.034, 349.367 )
-material_override = ExtResource( 10 )
+material_override = ExtResource( 16 )
 mesh = SubResource( 4 )
 material/0 = null
 
 [node name="Puddle12" type="MeshInstance" parent="BG"]
 transform = Transform( 6.35778, 0, 0, 0, 1.01, 0, 0, 0, 5.60813, -25.7712, -15.6177, 353.447 )
-material_override = ExtResource( 10 )
+material_override = ExtResource( 16 )
 mesh = SubResource( 4 )
 material/0 = null
 
 [node name="Puddle13" type="MeshInstance" parent="BG"]
 transform = Transform( 8.57911, 0, 0, 0, 1.01, 0, 0, 0, 9.11858, -2.01245, -15.6177, 376.708 )
-material_override = ExtResource( 10 )
+material_override = ExtResource( 16 )
 mesh = SubResource( 4 )
 material/0 = null
 
 [node name="Puddle14" type="MeshInstance" parent="BG"]
 transform = Transform( 8.57911, 0, 0, 0, 1.01, 0, 0, 0, 9.11858, -200.615, -15.8324, 339.464 )
-material_override = ExtResource( 10 )
+material_override = ExtResource( 16 )
 mesh = SubResource( 4 )
 material/0 = null
 
 [node name="Puddle15" type="MeshInstance" parent="BG"]
 transform = Transform( 17.2361, 0, 0, 0, 1.01, 0, 0, 0, 16.9419, -143.432, -15.8324, 310.841 )
-material_override = ExtResource( 10 )
+material_override = ExtResource( 16 )
 mesh = SubResource( 4 )
 material/0 = null
 
 [node name="Puddle17" type="MeshInstance" parent="BG"]
 transform = Transform( 5.97804, 0, 0, 0, 1.01, 0, 0, 0, 6.86066, -201.012, -1.73102, 86.1729 )
-material_override = ExtResource( 10 )
+material_override = ExtResource( 16 )
 mesh = SubResource( 4 )
 material/0 = null
 
 [node name="Puddle5" type="MeshInstance" parent="BG"]
 transform = Transform( 4.22747, 0, 0, 0, 1.01, 0, 0, 0, 3.34152, 19.0375, 26.3692, 136.15 )
-material_override = ExtResource( 10 )
+material_override = ExtResource( 16 )
 mesh = SubResource( 4 )
 material/0 = null
 
 [node name="Puddle7" type="MeshInstance" parent="BG"]
 transform = Transform( 8.90615, 0, 0, 0, 2.1278, 0, 0, 0, 7.03969, -28.7598, 27.013, 241.088 )
-material_override = ExtResource( 10 )
+material_override = ExtResource( 16 )
 mesh = SubResource( 4 )
 material/0 = null
 
 [node name="Puddle6" type="MeshInstance" parent="BG"]
 transform = Transform( 9.38845, 0, 0, 0, 1.01, 0, 0, 0, 9.46229, -2.75557, 26.3692, 124.624 )
-material_override = ExtResource( 10 )
+material_override = ExtResource( 16 )
 mesh = SubResource( 4 )
 material/0 = null
 
 [node name="Puddle3" type="MeshInstance" parent="BG"]
 transform = Transform( 10.0617, 0, 0, 0, 1.01, 0, 0, 0, 10.8186, 13.9066, 0, 39.019 )
-material_override = ExtResource( 10 )
+material_override = ExtResource( 16 )
 mesh = SubResource( 4 )
 material/0 = null
 
-[node name="Stones2" parent="BG" instance=ExtResource( 17 )]
+[node name="Stones2" parent="BG" instance=ExtResource( 23 )]
 transform = Transform( 0.13783, 0, 0.990456, 0, 1, 0, -0.990456, 0, 0.13783, -216.168, -25.463, 370.933 )
 
-[node name="Stones" parent="BG" instance=ExtResource( 17 )]
+[node name="Stones" parent="BG" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -154.981, -11.3274, 80.3573 )
 
-[node name="Stones3" parent="BG" instance=ExtResource( 17 )]
+[node name="Stones3" parent="BG" instance=ExtResource( 23 )]
 transform = Transform( 0.13783, 0, 0.990456, 0, 1, 0, -0.990456, 0, 0.13783, -29.5942, 16.7818, 224.254 )
 
 [node name="dirthill2" type="MeshInstance" parent="BG"]
 transform = Transform( 0.158281, 0, -0.136214, 0, 0.104514, 0, 0.126046, 0, 0.171049, -212.564, -21.1786, 363.624 )
-mesh = ExtResource( 18 )
-material/0 = ExtResource( 19 )
+mesh = ExtResource( 24 )
+material/0 = ExtResource( 25 )
 
 [node name="dirthill4" type="MeshInstance" parent="BG"]
 transform = Transform( -0.0418313, 0, 0.098266, 0, 0.0433425, 0, -0.0518182, 0, -0.0793273, -34.3076, 26.5909, 218.54 )
-mesh = ExtResource( 18 )
-material/0 = ExtResource( 19 )
+mesh = ExtResource( 24 )
+material/0 = ExtResource( 25 )
 
 [node name="dirthill5" type="MeshInstance" parent="BG"]
 transform = Transform( 0.0595118, 0, -0.0566793, 0, 0.0433425, 0, 0.0298884, 0, 0.112856, -23.76, -1.63167, -20.0215 )
-mesh = ExtResource( 18 )
-material/0 = ExtResource( 19 )
+mesh = ExtResource( 24 )
+material/0 = ExtResource( 25 )
 
 [node name="dirthill6" type="MeshInstance" parent="BG"]
 transform = Transform( -0.0440628, 0, -0.0586823, 0, 0.0433425, 0, 0.0767363, 0, -0.033696, 18.4784, -1.63167, 14.8636 )
-mesh = ExtResource( 18 )
-material/0 = ExtResource( 19 )
+mesh = ExtResource( 24 )
+material/0 = ExtResource( 25 )
 
 [node name="dirthill3" type="MeshInstance" parent="BG"]
 transform = Transform( -0.100869, 0, 0.236953, 0, 0.104514, 0, -0.124951, 0, -0.191285, -160.32, -7.57199, 85.7585 )
-mesh = ExtResource( 18 )
-material/0 = ExtResource( 19 )
+mesh = ExtResource( 24 )
+material/0 = ExtResource( 25 )
 
 [node name="Puddle2" type="MeshInstance" parent="BG"]
 transform = Transform( 8.58438, 0, 0, 0, 1.01, 0, 0, 0, 8.85225, 16.8904, 0, -6.65106 )
-material_override = ExtResource( 10 )
+material_override = ExtResource( 16 )
 mesh = SubResource( 4 )
 material/0 = null
 
-[node name="Fruit" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.6343, -11.703, 367.5 )
 
-[node name="Fruit4" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit4" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -132.307, -11.703, 338.246 )
 
-[node name="Fruit5" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit5" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -176.885, -11.703, 338.246 )
 
-[node name="Fruit35" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit35" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -225.319, -11.703, 304.284 )
 
-[node name="Fruit36" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit36" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -213.027, -11.703, 293.914 )
 
-[node name="Fruit6" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit6" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -176.885, -11.703, 313.978 )
 
-[node name="Fruit7" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit7" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -195.066, 1.6687, 181.535 )
 
-[node name="Fruit8" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit8" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -117.045, 1.6687, 167.425 )
 
-[node name="Fruit9" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit9" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -56.7391, 31.5633, 338.399 )
 
-[node name="Fruit12" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit12" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4776, 31.5633, 338.399 )
 
-[node name="Fruit34" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit34" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5403, 31.5633, 338.399 )
 
-[node name="Fruit13" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit13" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4776, 31.5633, 283.318 )
 
-[node name="Fruit14" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit14" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.3981, 31.5633, 279.746 )
 
-[node name="Fruit16" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit16" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.1848, 31.5633, 226.886 )
 
-[node name="Fruit17" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit17" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3463, 31.5633, 226.886 )
 
-[node name="Fruit18" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit18" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5138, 31.5633, 226.886 )
 
-[node name="Fruit20" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit20" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09042, 31.5633, 149.738 )
 
-[node name="Fruit21" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit21" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09042, 31.5633, 166.323 )
 
-[node name="Fruit23" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit23" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09042, 31.5633, 125.827 )
 
-[node name="Fruit24" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit24" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.0919, 31.5633, 125.827 )
 
-[node name="Fruit25" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit25" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.2902, 31.5633, 125.827 )
 
-[node name="Fruit26" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit26" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13073, 31.5633, 68.134 )
 
-[node name="Fruit31" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit31" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13073, 3.9945, 99.635 )
 
-[node name="Fruit32" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit32" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.1958, 3.9945, 99.635 )
 
-[node name="Fruit33" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit33" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1587, 3.9945, 99.635 )
 
-[node name="Fruit27" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit27" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4891, 4.2861, 46.257 )
 
-[node name="Fruit28" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit28" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4891, 4.2861, -22.301 )
 
-[node name="Fruit29" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit29" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6569, 4.2861, -22.301 )
 
-[node name="Fruit30" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit30" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6569, 4.2861, 44.586 )
 
-[node name="Fruit22" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit22" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09042, 31.5633, 178.759 )
 
-[node name="Fruit10" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit10" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -81.3445, 22.5992, 338.399 )
 
-[node name="Fruit19" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit19" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -81.3445, 22.5992, 338.399 )
 
-[node name="Fruit11" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit11" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -105.311, 1.4001, 337.843 )
 
-[node name="Fruit2" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit2" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.18933, -11.703, 381.441 )
 
-[node name="Fruit3" parent="BG" instance=ExtResource( 20 )]
+[node name="Fruit3" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5798, -11.703, 350.632 )
 
-[node name="Peanut" parent="BG" instance=ExtResource( 21 )]
+[node name="Peanut" parent="BG" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.49858, -11.6072, 366.94 )
 
-[node name="Pinetree" parent="BG" instance=ExtResource( 22 )]
+[node name="Pinetree" parent="BG" instance=ExtResource( 28 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -228.829, -15.2884, 291.388 )
 
-[node name="Pinetree2" parent="BG" instance=ExtResource( 22 )]
+[node name="Pinetree2" parent="BG" instance=ExtResource( 28 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -100.157, -15.2884, 291.388 )
 
-[node name="Pinetree3" parent="BG" instance=ExtResource( 22 )]
+[node name="Pinetree3" parent="BG" instance=ExtResource( 28 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.3123, 28.1514, 353.326 )
 
-[node name="Pinetree4" parent="BG" instance=ExtResource( 22 )]
+[node name="Pinetree4" parent="BG" instance=ExtResource( 28 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3279, 27.1119, 79.0963 )
 
-[node name="Pinetree5" parent="BG" instance=ExtResource( 22 )]
+[node name="Pinetree5" parent="BG" instance=ExtResource( 28 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.24615, 0.117793, -23.2075 )
 
-[node name="Pinetree6" parent="BG" instance=ExtResource( 22 )]
+[node name="Pinetree6" parent="BG" instance=ExtResource( 28 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0166, 0.117793, 19.8539 )
 
-[node name="Pinetree7" parent="BG" instance=ExtResource( 22 )]
+[node name="Pinetree7" parent="BG" instance=ExtResource( 28 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -202.306, -0.866898, 70.4251 )
 
-[node name="PlayMusic" parent="." instance=ExtResource( 23 )]
-stream = ExtResource( 24 )
+[node name="PlayMusic" parent="." instance=ExtResource( 29 )]
+stream = ExtResource( 30 )
 [connection signal="level_finished" from="Player" to="Hud" method="_on_Player_level_finished"]
+[connection signal="pressed" from="Hud/Finished/Next" to="Hud" method="_on_Back_pressed"]
