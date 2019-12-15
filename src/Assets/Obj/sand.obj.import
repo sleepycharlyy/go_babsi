@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/sand.obj-bbe8d961e0903799b4f2df6fa29f8762.mesh"
+
+[deps]
+
+files=[ "res://.import/sand.obj-bbe8d961e0903799b4f2df6fa29f8762.mesh" ]
+
+source_file="res://Assets/Obj/sand.obj"
+dest_files=[ "res://.import/sand.obj-bbe8d961e0903799b4f2df6fa29f8762.mesh", "res://.import/sand.obj-bbe8d961e0903799b4f2df6fa29f8762.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/seaplants.obj-e585e68b85f54a79b21d87f04230eef9.mesh"
+
+[deps]
+
+files=[ "res://.import/seaplants.obj-e585e68b85f54a79b21d87f04230eef9.mesh" ]
+
+source_file="res://Assets/Obj/seaplants.obj"
+dest_files=[ "res://.import/seaplants.obj-e585e68b85f54a79b21d87f04230eef9.mesh", "res://.import/seaplants.obj-e585e68b85f54a79b21d87f04230eef9.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

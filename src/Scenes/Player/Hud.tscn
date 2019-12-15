@@ -132,10 +132,12 @@ custom_fonts/font = ExtResource( 6 )
 text = "Time:"
 
 [node name="Score" type="Label" parent="Finished"]
+anchor_top = 0.5
+anchor_bottom = 0.5
 margin_left = 374.071
-margin_top = 426.264
+margin_top = 66.264
 margin_right = 470.071
-margin_bottom = 442.264
+margin_bottom = 82.264
 custom_fonts/font = ExtResource( 6 )
 text = "Score:"
 

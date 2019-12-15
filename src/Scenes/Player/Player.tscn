@@ -138,6 +138,7 @@ flag_rotate_y = true
 spread = 173.93
 gravity = Vector3( 0, 0, -7 )
 initial_velocity = 0.0
+angular_velocity = 0.030303
 radial_accel = 1.0
 angle = 18.0
 scale_amount = 2.0
@@ -147,7 +148,7 @@ color_ramp = SubResource( 7 )
 [node name="Animation" type="AnimationPlayer" parent="."]
 anims/player = ExtResource( 8 )
 
-[node name="OutOfBoundsSound" type="AudioStreamPlayer" parent="."]
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 9 )
 bus = "SFX"

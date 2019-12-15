@@ -7,6 +7,10 @@ var scene_path_to_load
 func _ready():
 	get_tree().paused = false;
 	
+	#check if hmtl
+	if OS.has_feature("HTML5"): #make quit button disappear
+		$GUI/Menu/Buttons/QuitButton.queue_free()
+	
 	#focus start button
 	$GUI/Menu/Buttons/StartButton.grab_focus()
 	

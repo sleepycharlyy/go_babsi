@@ -89,9 +89,7 @@ func _physics_process(d):
 	
 	#check if out of bounds
 	if (get_translation().y < -50):
-		$OutOfBoundsSound.play()
-		get_tree().reload_current_scene()
-
+		onDeath()
 
 	#animate
 	anim_player.play("player")
@@ -108,5 +106,9 @@ func _process(d):
 	var seconds = elapsed % 60
 	str_elapsed = "%02d : %02d" % [minutes, seconds]
 	
+	
+func onDeath():
+		$DeathSound.play()
+		get_tree().reload_current_scene()
 	
 	

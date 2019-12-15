@@ -1,0 +1,293 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Scenes/Misc/PlayMusic.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Audio/Music/coral.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Scenes/Levels/Enviroments/Level3_enviroment.tres" type="Environment" id=3]
+[ext_resource path="res://Scripts/Player/hud.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Fonts/font_30.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Assets/Textures/fruit.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Textures/peanut.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Fonts/font_48.res" type="DynamicFont" id=8]
+[ext_resource path="res://Assets/Fonts/font_16.res" type="DynamicFont" id=9]
+[ext_resource path="res://Audio/SFX/accept.wav" type="AudioStream" id=10]
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Scenery/Bubbles.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Scenery/Sandground.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Materials/yellow.material" type="Material" id=14]
+[ext_resource path="res://Scenes/Interactive/Fish.tscn" type="PackedScene" id=15]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="BoxShape" id=2]
+
+[sub_resource type="Animation" id=3]
+resource_name = "path"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 34.9002, 6.89287, 73.1975 ), Vector3( -29.374, 6.89287, 73.1975 ), Vector3( 34.9002, 6.89287, 73.1975 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.3, 1.5, 2.8, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, -180, 0 ), Vector3( 0, -180, 0 ), Vector3( 0, 0, 0 ) ]
+}
+
+[node name="World" type="Spatial"]
+
+[node name="PlayMusic" parent="." instance=ExtResource( 1 )]
+stream = ExtResource( 2 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 3 )
+
+[node name="Hud" type="CanvasLayer" parent="."]
+pause_mode = 2
+editor/display_folded = true
+layer = 10
+script = ExtResource( 4 )
+
+[node name="Debug" type="Label" parent="Hud"]
+visible = false
+margin_left = 22.45
+margin_top = 184.105
+margin_right = 127.45
+margin_bottom = 249.105
+text = "x: 0
+y: 0
+z: 0
+fps: 0"
+
+[node name="Score" type="Label" parent="Hud"]
+margin_left = 65.8428
+margin_top = 36.7388
+margin_right = 377.843
+margin_bottom = 84.7388
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 1, 0.803922, 0.458824, 1 )
+custom_colors/font_color_shadow = Color( 0.101961, 0.109804, 0.172549, 1 )
+custom_constants/shadow_offset_y = 2
+text = "x 0"
+
+[node name="TextureRect" type="TextureRect" parent="Hud/Score"]
+margin_left = -46.6321
+margin_top = -12.9146
+margin_right = -2.63209
+margin_bottom = 33.0854
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="Peanut" type="TextureRect" parent="Hud"]
+margin_left = 242.45
+margin_top = 48.2327
+margin_right = 286.45
+margin_bottom = 94.2327
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 5
+
+[node name="Time" type="Label" parent="Hud"]
+margin_left = 34.2659
+margin_top = 77.3459
+margin_right = 346.266
+margin_bottom = 125.346
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.937255, 0.490196, 0.341176, 1 )
+custom_colors/font_color_shadow = Color( 0.101961, 0.109804, 0.172549, 1 )
+custom_constants/shadow_offset_y = 2
+text = "00 : 00"
+
+[node name="Pause" type="Control" parent="Hud"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="Hud/Pause"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.101961, 0.109804, 0.172549, 0.854902 )
+
+[node name="Label" type="Label" parent="Hud/Pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -252.0
+margin_top = -360.0
+margin_right = 252.0
+margin_bottom = 360.0
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+custom_colors/font_color_shadow = Color( 0.101961, 0.109804, 0.172549, 1 )
+custom_constants/shadow_offset_y = 5
+text = "GAME PAUSED"
+align = 1
+valign = 1
+
+[node name="Finished" type="Control" parent="Hud"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="Hud/Finished"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -386.708
+margin_top = -310.5
+margin_right = 389.292
+margin_bottom = 310.5
+color = Color( 0.101961, 0.109804, 0.172549, 1 )
+
+[node name="Finished" type="Label" parent="Hud/Finished"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -24.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+custom_colors/font_color_shadow = Color( 0.2, 0.235294, 0.341176, 1 )
+custom_constants/shadow_offset_y = 5
+text = "GAME FINISHED"
+align = 1
+valign = 1
+
+[node name="Time" type="Label" parent="Hud/Finished"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 372.004
+margin_top = 88.1509
+margin_right = 452.004
+margin_bottom = 104.151
+custom_fonts/font = ExtResource( 9 )
+text = "Time:"
+
+[node name="Score" type="Label" parent="Hud/Finished"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 374.071
+margin_top = 66.264
+margin_right = 470.071
+margin_bottom = 82.264
+custom_fonts/font = ExtResource( 9 )
+text = "Score:"
+
+[node name="Next" type="Button" parent="Hud/Finished"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 641.797
+margin_top = -304.821
+margin_right = -423.203
+margin_bottom = -240.821
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_disabled = Color( 0.337255, 0.423529, 0.52549, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.101961, 0.109804, 0.172549, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+flat = true
+
+[node name="Label" type="Label" parent="Hud/Finished/Next"]
+margin_left = 13.0
+margin_top = 10.0
+margin_right = 40.0
+margin_bottom = 14.0
+rect_scale = Vector2( 1.00001, 1.08 )
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0.580392, 0.690196, 0.760784, 1 )
+custom_colors/font_outline_modulate = Color( 0.337255, 0.423529, 0.52549, 1 )
+custom_colors/font_color_shadow = Color( 0.337255, 0.423529, 0.52549, 1 )
+text = "BACK"
+
+[node name="Peanut" type="TextureRect" parent="Hud/Finished"]
+margin_left = 378.087
+margin_top = 483.316
+margin_right = 422.087
+margin_bottom = 529.316
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 5
+
+[node name="PlayAccept" type="AudioStreamPlayer" parent="Hud"]
+stream = ExtResource( 10 )
+bus = "SFX"
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.0203334, -0.861695, 0.50702, 0.0345295, 0.507427, 0.861003, -0.999197, 1.86414e-009, 0.0400716, 89.6072, 93.6587, -41.5199 )
+
+[node name="Player" parent="." instance=ExtResource( 11 )]
+
+[node name="BG" type="Spatial" parent="."]
+
+[node name="Bubbles" parent="BG" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.24508, 0.999992, 24.3589 )
+
+[node name="Bubbles2" parent="BG" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3438, 0.999992, 46.1788 )
+
+[node name="Bubbles3" parent="BG" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.03708, 0.999992, 77.6396 )
+
+[node name="Bubbles4" parent="BG" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.52004, 0.999992, 88.0713 )
+
+[node name="Bubbles5" parent="BG" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0992, 0.999992, -13.0297 )
+
+[node name="Bubbles6" parent="BG" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5702, 0.999992, -18.1576 )
+
+[node name="Ground" type="StaticBody" parent="BG"]
+transform = Transform( 1.28044, 0, 0, 0, 1, 0, 0, 0, 4.11079, 0, 0, 38.9481 )
+
+[node name="Sandground2" parent="BG/Ground" instance=ExtResource( 13 )]
+transform = Transform( 5.13588, 0, 0, 0, 0.095, 0, 0, 0, 3.73803, -4.56912, 1.05368, -5.56305 )
+
+[node name="Sandground5" parent="BG/Ground" instance=ExtResource( 13 )]
+transform = Transform( 5.13588, 0, 0, 0, 0.095, 0, 0, 0, 3.73803, 4.23197, 1.05368, 5.78629 )
+
+[node name="Sandground4" parent="BG/Ground" instance=ExtResource( 13 )]
+transform = Transform( 5.13588, 0, 0, 0, 0.095, 0, 0, 0, 3.73803, -4.48239, 1.05368, 5.82453 )
+
+[node name="Sandground3" parent="BG/Ground" instance=ExtResource( 13 )]
+transform = Transform( 5.13588, 0, 0, 0, 0.095, 0, 0, 0, 3.73803, 4.18982, 1.05368, -5.47235 )
+
+[node name="MeshInstance" type="MeshInstance" parent="BG/Ground"]
+transform = Transform( 19.6297, 0, 0, 0, 1, 0, 0, 0, 17.0359, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = ExtResource( 14 )
+
+[node name="CollisionShape" type="CollisionShape" parent="BG/Ground"]
+transform = Transform( 19.63, 0, 0, 0, 1, 0, 0, 0, 17.036, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="Interactive" type="Spatial" parent="BG"]
+
+[node name="Fish" parent="BG/Interactive" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4755, 6.89287, 73.1975 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BG/Interactive/Fish"]
+autoplay = "path"
+anims/path = SubResource( 3 )
+[connection signal="pressed" from="Hud/Finished/Next" to="Hud" method="_on_Back_pressed"]

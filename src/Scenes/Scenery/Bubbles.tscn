@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_transparent = true
+flags_unshaded = true
+params_diffuse_mode = 3
+params_specular_mode = 1
+albedo_color = Color( 0.705882, 0.901961, 0.878431, 0.290196 )
+
+[sub_resource type="SphereMesh" id=7]
+material = SubResource( 6 )
+radial_segments = 10
+rings = 6
+
+[node name="Bubbles" type="CPUParticles"]
+amount = 5
+lifetime = 3.0
+explosiveness = 0.23
+randomness = 1.0
+mesh = SubResource( 7 )
+spread = 104.1
+gravity = Vector3( 0, 10, 0 )
+angular_velocity = 31.7056
+scale_amount = 0.25
+scale_amount_random = 0.2

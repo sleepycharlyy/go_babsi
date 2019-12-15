@@ -7,7 +7,7 @@
 [ext_resource path="res://Assets/atari full.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Scenes/Misc/FadeIn.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Animations/titlescreen.anim" type="Animation" id=7]
-[ext_resource path="res://Scenes/Objects/Cloud.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Scenery/Cloud.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Obj/grass.obj" type="ArrayMesh" id=9]
 [ext_resource path="res://Materials/biggeroutline_green.material" type="Material" id=10]
 [ext_resource path="res://Materials/green.material" type="Material" id=11]
@@ -175,7 +175,7 @@ custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.337255, 0.423529, 0.52549, 1 )
 custom_colors/font_color_shadow = Color( 0.101961, 0.109804, 0.172549, 1 )
 custom_constants/shadow_offset_y = 2
-text = "Prototype 1.4"
+text = "Alpha 1.0"
 
 [node name="FadeIn" parent="GUI" instance=ExtResource( 6 )]
 visible = false

@@ -1,97 +1,130 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player/Hud.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Materials/blue.material" type="Material" id=3]
-[ext_resource path="res://Scenes/Objects/JumpPad.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Objects/Fruit.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Objects/Goal.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Objects/BoostPad.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Objects/Palm.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Objects/Peanut.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Materials/outline.material" type="Material" id=3]
+[ext_resource path="res://Shaders/cel.shader" type="Shader" id=4]
+[ext_resource path="res://Scenes/Scenery/Sandground.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Collectibles/Fruit.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Interactive/Fish.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Levels/Enviroments/Level3_enviroment.tres" type="Environment" id=8]
+[ext_resource path="res://Scenes/Scenery/Bubbles.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Objects/Seaplants.tscn" type="PackedScene" id=10]
 
-[sub_resource type="CubeMesh" id=1]
-material = ExtResource( 3 )
+[sub_resource type="ShaderMaterial" id=1]
+next_pass = ExtResource( 3 )
+shader = ExtResource( 4 )
+shader_param/use_shade = true
+shader_param/use_specular = false
+shader_param/use_rim = false
+shader_param/base_use_light_color = false
+shader_param/specular_use_light_color = false
+shader_param/rim_use_light_color = false
+shader_param/base_color = Color( 0.231373, 0.364706, 0.788235, 1 )
+shader_param/shade_color = Color( 0.160784, 0.211765, 0.435294, 1 )
+shader_param/specular_tint = Color( 0.5, 0.5, 0.5, 1 )
+shader_param/rim_tint = Color( 0.5, 0.5, 0.5, 1 )
+shader_param/shade_threshold = -0.197
+shader_param/shade_softness = 0.0
+shader_param/specular_threshold = 0.0
+shader_param/specular_softness = 0.0
+shader_param/rim_threshold = 0.0
+shader_param/rim_spread = 0.0
+shader_param/rim_softness = 0.0
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="CubeMesh" id=2]
+material = SubResource( 1 )
+
+[sub_resource type="BoxShape" id=3]
+
+[sub_resource type="Animation" id=4]
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -7.768, 10, 27.353 ), Vector3( -40, 10, 27.353 ), Vector3( -7.768, 10, 27.353 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2.3, 2.5, 4.8, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 180, 0 ), Vector3( 0, 180, 0 ), Vector3( 0, 0, 0 ) ]
+}
 
 [node name="World" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 86.8197, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3916, 6.24929, 23.7071 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3916, 6.24929, -35.3605 )
 
 [node name="Hud" parent="." instance=ExtResource( 2 )]
 
 [node name="Ground" type="StaticBody" parent="."]
+editor/display_folded = true
 transform = Transform( 56.4348, 0, 0, 0, 1, 0, 0, 0, 49.7968, 0, 0, 0 )
 
 [node name="CSGMesh" type="CSGMesh" parent="Ground"]
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Ground2" type="StaticBody" parent="."]
 editor/display_folded = true
 transform = Transform( 56.4348, 0, 0, 0, 0.766044, -32.0088, 0, 0.642788, 38.1466, 0, -31.3703, 86.9249 )
 
 [node name="CSGMesh" type="CSGMesh" parent="Ground2"]
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground2"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
+
+[node name="Sandground" parent="." instance=ExtResource( 5 )]
 
 [node name="Ground3" type="StaticBody" parent="."]
 editor/display_folded = true
 transform = Transform( 56.4348, 0, 0, 0, 0.984808, -8.64713, 0, 0.173648, 49.0403, 0, -67.1219, 155.854 )
 
 [node name="CSGMesh" type="CSGMesh" parent="Ground3"]
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground3"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
-[node name="JumpPad" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01225, 0 )
-
-[node name="Fruit" parent="." instance=ExtResource( 5 )]
+[node name="Fruit" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.0628, -10.6293, -32.3151 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -97.2853, 36.1462, 0 )
 
-[node name="Goal" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 45.0141, 0.648521, -5.07956 )
+[node name="Fish" parent="." instance=ExtResource( 7 )]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.768, 10, 27.353 )
 
-[node name="BoostPad" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.9174, 1.04641, 0 )
-collision_layer = 9
-collision_mask = 9
+[node name="Path" type="AnimationPlayer" parent="Fish"]
+autoplay = "enemypath"
+anims/enemypath = SubResource( 4 )
 
-[node name="BoostPad2" parent="." instance=ExtResource( 7 )]
-transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 32.3405, 1.04641, 0 )
-collision_layer = 9
-collision_mask = 9
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 8 )
 
-[node name="BoostPad3" parent="." instance=ExtResource( 7 )]
-transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 32.3405, 1.04641, 20.0283 )
-collision_layer = 9
-collision_mask = 9
+[node name="Bubbles" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1.17639, 0, 0, 0, 1.85369, 0, 0, 0, 1.17639, 10.5387, 0, 0 )
 
-[node name="BoostPad4" parent="." instance=ExtResource( 7 )]
-transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 32.3405, 1.04641, 35.8044 )
-collision_layer = 9
-collision_mask = 9
-
-[node name="BoostPad5" parent="." instance=ExtResource( 7 )]
-transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 14.4941, 1.04641, 35.8044 )
-collision_layer = 9
-collision_mask = 9
-
-[node name="Palm" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5797, 0, 0 )
-
-[node name="Peanut" parent="." instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17745, 4.07929, 23.2834 )
+[node name="Seaplants" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12119, 0 )
 [connection signal="level_finished" from="Player" to="Hud" method="_on_Player_level_finished"]
