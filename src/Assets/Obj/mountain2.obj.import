@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/mountain2.obj-50e1e11045716ef3e310ffdb377dc610.mesh"
+
+[deps]
+
+files=[ "res://.import/mountain2.obj-50e1e11045716ef3e310ffdb377dc610.mesh" ]
+
+source_file="res://Assets/Obj/mountain2.obj"
+dest_files=[ "res://.import/mountain2.obj-50e1e11045716ef3e310ffdb377dc610.mesh", "res://.import/mountain2.obj-50e1e11045716ef3e310ffdb377dc610.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

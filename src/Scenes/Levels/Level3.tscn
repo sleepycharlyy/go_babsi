@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Scenes/Misc/PlayMusic.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Audio/Music/coral.ogg" type="AudioStream" id=2]
@@ -12,16 +12,72 @@
 [ext_resource path="res://Audio/SFX/accept.wav" type="AudioStream" id=10]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Scenery/Bubbles.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/Scenery/Sandground.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Materials/yellow.material" type="Material" id=14]
-[ext_resource path="res://Scenes/Interactive/Fish.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Objects/Mountain1.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/Obj/mountain1.obj" type="ArrayMesh" id=14]
+[ext_resource path="res://Shaders/cel.shader" type="Shader" id=15]
+[ext_resource path="res://Scenes/Objects/Mountain2.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Objects/Seaplants.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Objects/Stones.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Scenery/Sandground.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Materials/yellow.material" type="Material" id=20]
+[ext_resource path="res://Scenes/Interactive/BoostPad.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenes/Interactive/Fish.tscn" type="PackedScene" id=22]
 
-[sub_resource type="CubeMesh" id=1]
+[sub_resource type="SpatialMaterial" id=2]
+flags_unshaded = true
+params_cull_mode = 1
+params_grow = true
+params_grow_amount = 1.0
+albedo_color = Color( 0.101961, 0.109804, 0.172549, 1 )
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="ShaderMaterial" id=3]
+next_pass = SubResource( 2 )
+shader = ExtResource( 15 )
+shader_param/use_shade = false
+shader_param/use_specular = false
+shader_param/use_rim = false
+shader_param/base_use_light_color = false
+shader_param/specular_use_light_color = true
+shader_param/rim_use_light_color = false
+shader_param/base_color = Color( 0.580392, 0.690196, 0.760784, 1 )
+shader_param/shade_color = Color( 0.337255, 0.423529, 0.52549, 1 )
+shader_param/specular_tint = Color( 0.5, 0.5, 0.5, 1 )
+shader_param/rim_tint = Color( 0.5, 0.5, 0.5, 1 )
+shader_param/shade_threshold = 0.106
+shader_param/shade_softness = 0.0
+shader_param/specular_threshold = 0.0
+shader_param/specular_softness = 0.0
+shader_param/rim_threshold = 0.0
+shader_param/rim_spread = 0.0
+shader_param/rim_softness = 0.0
 
-[sub_resource type="Animation" id=3]
-resource_name = "path"
+[sub_resource type="BoxShape" id=9]
+
+[sub_resource type="CubeMesh" id=6]
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 15 )
+shader_param/use_shade = true
+shader_param/use_specular = false
+shader_param/use_rim = false
+shader_param/base_use_light_color = false
+shader_param/specular_use_light_color = false
+shader_param/rim_use_light_color = false
+shader_param/base_color = Color( 0.937255, 0.490196, 0.341176, 1 )
+shader_param/shade_color = Color( 0.364706, 0.152941, 0.364706, 1 )
+shader_param/specular_tint = Color( 0.501961, 0.501961, 0.501961, 1 )
+shader_param/rim_tint = Color( 0.5, 0.5, 0.5, 1 )
+shader_param/shade_threshold = -0.197
+shader_param/shade_softness = 0.0
+shader_param/specular_threshold = 0.0
+shader_param/specular_softness = 0.0
+shader_param/rim_threshold = 0.0
+shader_param/rim_spread = 0.0
+shader_param/rim_softness = 0.0
+
+[sub_resource type="BoxShape" id=7]
+
+[sub_resource type="Animation" id=8]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -47,6 +103,35 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, -180, 0 ), Vector3( 0, -180, 0 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "path"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -89.255, -32, 197.883 ), Vector3( -89.255, -32, 323.119 ), Vector3( -89.255, -32, 197.883 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.3, 1.5, 2.8, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, -90, 0 ), Vector3( 0, -90, 0 ), Vector3( 0, 90, 0 ) ]
 }
 
 [node name="World" type="Spatial"]
@@ -258,36 +343,176 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0992, 0.999992, -13.0297 )
 [node name="Bubbles6" parent="BG" instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5702, 0.999992, -18.1576 )
 
+[node name="Mountain1" parent="BG" instance=ExtResource( 13 )]
+transform = Transform( 0.560545, 0, -0.258743, 0, 0.61738, 0, 0.258743, 0, 0.560545, -2.67415, 0, -28.1729 )
+
+[node name="mountain1" type="MeshInstance" parent="BG"]
+transform = Transform( -0.279323, 0, -0.355236, 0, 0.577672, 0, 0.014066, 0, -0.45034, -85.577, -115.798, 76.3286 )
+mesh = ExtResource( 14 )
+material/0 = SubResource( 3 )
+
+[node name="Wall" type="StaticBody" parent="BG"]
+transform = Transform( 5.39643, 0, 0, 0, 26.5847, 0, 0, 0, 45.6456, -29.9578, 0, 66.3235 )
+
+[node name="CollisionShape" type="CollisionShape" parent="BG/Wall"]
+shape = SubResource( 9 )
+
+[node name="Wall2" type="StaticBody" parent="BG"]
+transform = Transform( 65.632, 0, 0, 0, 100, 0, 0, 0, 32.312, -80.4845, -66.7864, 143.41 )
+
+[node name="CollisionShape" type="CollisionShape" parent="BG/Wall2"]
+shape = SubResource( 9 )
+
+[node name="Mountain7" parent="BG" instance=ExtResource( 13 )]
+transform = Transform( 2.17387, 0, -1.00344, 0, 4.05684, 0, 1.00344, 0, 2.17387, 101.907, -68.7982, 278.087 )
+
+[node name="Mountain4" parent="BG" instance=ExtResource( 13 )]
+transform = Transform( 0.457983, 0, -0.211401, 0, 0.942286, 0, 0.549958, 0, 1.19144, -33.9195, 0, -0.391285 )
+
+[node name="Mountain5" parent="BG" instance=ExtResource( 13 )]
+transform = Transform( 0.304369, 0, -0.333365, 0, 0.809542, 0, 0.707894, 0, 1.42424, 28.3126, 0, -0.391285 )
+
+[node name="Mountain2" parent="BG" instance=ExtResource( 16 )]
+transform = Transform( 0.771189, 0, -0.636606, 0, 1, 0, 0.636606, 0, 0.771189, -23.4913, 0, -31.1818 )
+
+[node name="Mountain6" parent="BG" instance=ExtResource( 16 )]
+transform = Transform( 1.46307, 0, -1.20774, 0, 3.95611, 0, 1.66297, 0, 2.01453, -161.063, -100.474, 95.5621 )
+
+[node name="Mountain8" parent="BG" instance=ExtResource( 16 )]
+transform = Transform( 0.0338546, 0, -1.0081, 0, 2.76167, 0, 1.06997, 0, 0.605415, 36.1526, -29.6846, 95.5621 )
+
+[node name="Mountain9" parent="BG" instance=ExtResource( 16 )]
+transform = Transform( -0.337429, 0, 1.70728, 0, 2.76167, 0, -2.68745, 0, -1.71431, 54.7029, -64.8297, 130.074 )
+
+[node name="Mountain3" parent="BG" instance=ExtResource( 16 )]
+transform = Transform( 0.473163, 0, 0.748666, 0, 1.49531, 0, -0.845325, 0, 0.534253, 20.9729, 0, -34.9197 )
+
+[node name="Seaplants" parent="BG" instance=ExtResource( 17 )]
+transform = Transform( 1.3293, -0.0818038, -0.565102, 0.0601759, 1.44392, -0.0674676, 0.567812, 0.0384858, 1.3301, 16.0536, 1.06363, -2.97645 )
+
+[node name="Seaplants3" parent="BG" instance=ExtResource( 17 )]
+transform = Transform( 0.50346, -0.0473569, -0.564467, 0.0315221, 0.75637, -0.0353417, 0.565572, 0, 0.504446, -21.4711, 1.06363, 69.998 )
+
+[node name="Seaplants2" parent="BG" instance=ExtResource( 17 )]
+transform = Transform( 1.24846, -0.0100667, 0.898091, 0.0639701, 1.53496, -0.0717216, -0.895867, 0.0955763, 1.24644, -19.3709, 1.06363, 67.0661 )
+
+[node name="Stones" parent="BG" instance=ExtResource( 18 )]
+transform = Transform( 0.504446, 0, -0.565572, 0, 0.757851, 0, 0.565572, 0, 0.504446, 14.2343, -7.42578, 41.0801 )
+
 [node name="Ground" type="StaticBody" parent="BG"]
 transform = Transform( 1.28044, 0, 0, 0, 1, 0, 0, 0, 4.11079, 0, 0, 38.9481 )
 
-[node name="Sandground2" parent="BG/Ground" instance=ExtResource( 13 )]
+[node name="Sandground2" parent="BG/Ground" instance=ExtResource( 19 )]
 transform = Transform( 5.13588, 0, 0, 0, 0.095, 0, 0, 0, 3.73803, -4.56912, 1.05368, -5.56305 )
 
-[node name="Sandground5" parent="BG/Ground" instance=ExtResource( 13 )]
+[node name="Sandground5" parent="BG/Ground" instance=ExtResource( 19 )]
 transform = Transform( 5.13588, 0, 0, 0, 0.095, 0, 0, 0, 3.73803, 4.23197, 1.05368, 5.78629 )
 
-[node name="Sandground4" parent="BG/Ground" instance=ExtResource( 13 )]
+[node name="Sandground4" parent="BG/Ground" instance=ExtResource( 19 )]
 transform = Transform( 5.13588, 0, 0, 0, 0.095, 0, 0, 0, 3.73803, -4.48239, 1.05368, 5.82453 )
 
-[node name="Sandground3" parent="BG/Ground" instance=ExtResource( 13 )]
+[node name="Sandground3" parent="BG/Ground" instance=ExtResource( 19 )]
 transform = Transform( 5.13588, 0, 0, 0, 0.095, 0, 0, 0, 3.73803, 4.18982, 1.05368, -5.47235 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Ground"]
-transform = Transform( 19.6297, 0, 0, 0, 1, 0, 0, 0, 17.0359, 0, 0, 0 )
-mesh = SubResource( 1 )
-material/0 = ExtResource( 14 )
+transform = Transform( 19.6297, 0, 0, 0, 117.457, 0, 0, 0, 17.0359, 0, -116.468, 0 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Ground"]
 transform = Transform( 19.63, 0, 0, 0, 1, 0, 0, 0, 17.036, 0, 0, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 7 )
+
+[node name="Ground3" type="StaticBody" parent="BG"]
+editor/display_folded = true
+transform = Transform( 2.60248, 0, 0, 0, 1, 0, 0, 0, 3.87557, -24.8162, -47.459, 243.884 )
+
+[node name="Sandground2" parent="BG/Ground3" instance=ExtResource( 19 )]
+transform = Transform( 5.13588, 0, 0, 0, 0.095, 0, 0, 0, 3.73803, -4.56912, 1.05368, -5.56305 )
+
+[node name="Sandground5" parent="BG/Ground3" instance=ExtResource( 19 )]
+transform = Transform( 5.13588, 0, 0, 0, 0.095, 0, 0, 0, 3.73803, 4.23197, 1.05368, 5.78629 )
+
+[node name="Sandground4" parent="BG/Ground3" instance=ExtResource( 19 )]
+transform = Transform( 5.13588, 0, 0, 0, 0.095, 0, 0, 0, 3.73803, -4.48239, 1.05368, 5.82453 )
+
+[node name="Sandground3" parent="BG/Ground3" instance=ExtResource( 19 )]
+transform = Transform( 5.13588, 0, 0, 0, 0.095, 0, 0, 0, 3.73803, 4.18982, 1.05368, -5.47235 )
+
+[node name="MeshInstance" type="MeshInstance" parent="BG/Ground3"]
+transform = Transform( 19.6297, 0, 0, 0, 1, 0, 0, 0, 17.0359, 0, 0, 0 )
+mesh = SubResource( 6 )
+material/0 = ExtResource( 20 )
+
+[node name="CollisionShape" type="CollisionShape" parent="BG/Ground3"]
+transform = Transform( 19.63, 0, 0, 0, 1, 0, 0, 0, 17.036, 0, 0, 0 )
+shape = SubResource( 7 )
+
+[node name="Ground4" type="StaticBody" parent="BG"]
+editor/display_folded = true
+transform = Transform( 1.91873, 0, 0, 0, 1, 0, 0, 0, 3.21702, -136.305, -47.459, 256.162 )
+
+[node name="Sandground2" parent="BG/Ground4" instance=ExtResource( 19 )]
+transform = Transform( 5.13588, 0, 0, 0, 0.095, 0, 0, 0, 3.73803, -4.56912, 1.05368, -5.56305 )
+
+[node name="Sandground5" parent="BG/Ground4" instance=ExtResource( 19 )]
+transform = Transform( 5.13588, 0, 0, 0, 0.095, 0, 0, 0, 3.73803, 4.23197, 1.05368, 5.78629 )
+
+[node name="Sandground4" parent="BG/Ground4" instance=ExtResource( 19 )]
+transform = Transform( 5.13588, 0, 0, 0, 0.095, 0, 0, 0, 3.73803, -4.48239, 1.05368, 5.82453 )
+
+[node name="Sandground3" parent="BG/Ground4" instance=ExtResource( 19 )]
+transform = Transform( 5.13588, 0, 0, 0, 0.095, 0, 0, 0, 3.73803, 4.18982, 1.05368, -5.47235 )
+
+[node name="MeshInstance" type="MeshInstance" parent="BG/Ground4"]
+transform = Transform( 19.6297, 0, 0, 0, 1, 0, 0, 0, 17.0359, 0, 0, 0 )
+mesh = SubResource( 6 )
+material/0 = ExtResource( 20 )
+
+[node name="CollisionShape" type="CollisionShape" parent="BG/Ground4"]
+transform = Transform( 19.63, 0, 0, 0, 1, 0, 0, 0, 17.036, 0, 0, 0 )
+shape = SubResource( 7 )
+
+[node name="Ground2" type="StaticBody" parent="BG"]
+transform = Transform( 0.703865, 0, 0, 0, 0.857144, -1.47279, 0, 0.515077, 2.45088, 0, -25.1711, 150.322 )
+
+[node name="Sandground2" parent="BG/Ground2" instance=ExtResource( 19 )]
+transform = Transform( 5.13588, 0, 0, 0, 0.095, 0, 0, 0, 3.73803, -4.56912, 1.05368, -5.56305 )
+
+[node name="Sandground5" parent="BG/Ground2" instance=ExtResource( 19 )]
+transform = Transform( 5.13588, 0, 0, 0, 0.095, 0, 0, 0, 3.73803, 4.23197, 1.05368, 5.78629 )
+
+[node name="Sandground4" parent="BG/Ground2" instance=ExtResource( 19 )]
+transform = Transform( 5.13588, 0, 0, 0, 0.095, 0, 0, 0, 3.73803, -4.48239, 1.05368, 5.82453 )
+
+[node name="Sandground3" parent="BG/Ground2" instance=ExtResource( 19 )]
+transform = Transform( 5.13588, 0, 0, 0, 0.095, 0, 0, 0, 3.73803, 4.18982, 1.05368, -5.47235 )
+
+[node name="MeshInstance" type="MeshInstance" parent="BG/Ground2"]
+transform = Transform( 19.6297, 0, 0, 0, 1, 0, 0, 0, 17.0359, 0, 0, 0 )
+mesh = SubResource( 6 )
+material/0 = ExtResource( 20 )
+
+[node name="CollisionShape" type="CollisionShape" parent="BG/Ground2"]
+transform = Transform( 19.63, 0, 0, 0, 1, 0, 0, 0, 17.036, 0, 0, 0 )
+shape = SubResource( 7 )
 
 [node name="Interactive" type="Spatial" parent="BG"]
 
-[node name="Fish" parent="BG/Interactive" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4755, 6.89287, 73.1975 )
+[node name="BoostPad" parent="BG/Interactive" instance=ExtResource( 21 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -63.3074, -46.3155, 276.535 )
+
+[node name="Fish" parent="BG/Interactive" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3527, 6.89287, 73.1975 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BG/Interactive/Fish"]
 autoplay = "path"
-anims/path = SubResource( 3 )
+anims/path = SubResource( 8 )
+
+[node name="Fish2" parent="BG/Interactive" instance=ExtResource( 22 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -89.255, -30, 228.122 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BG/Interactive/Fish2"]
+autoplay = "path"
+anims/path = SubResource( 4 )
 [connection signal="pressed" from="Hud/Finished/Next" to="Hud" method="_on_Back_pressed"]
