@@ -23,15 +23,15 @@
 [ext_resource path="res://Scenes/Interactive/BoostPad.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Interactive/Fish.tscn" type="PackedScene" id=22]
 
-[sub_resource type="SpatialMaterial" id=2]
+[sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
 params_cull_mode = 1
 params_grow = true
 params_grow_amount = 1.0
 albedo_color = Color( 0.101961, 0.109804, 0.172549, 1 )
 
-[sub_resource type="ShaderMaterial" id=3]
-next_pass = SubResource( 2 )
+[sub_resource type="ShaderMaterial" id=2]
+next_pass = SubResource( 1 )
 shader = ExtResource( 15 )
 shader_param/use_shade = false
 shader_param/use_specular = false
@@ -51,9 +51,9 @@ shader_param/rim_threshold = 0.0
 shader_param/rim_spread = 0.0
 shader_param/rim_softness = 0.0
 
-[sub_resource type="BoxShape" id=9]
+[sub_resource type="BoxShape" id=3]
 
-[sub_resource type="CubeMesh" id=6]
+[sub_resource type="CubeMesh" id=4]
 
 [sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 15 )
@@ -75,9 +75,9 @@ shader_param/rim_threshold = 0.0
 shader_param/rim_spread = 0.0
 shader_param/rim_softness = 0.0
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=6]
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -105,8 +105,7 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, -180, 0 ), Vector3( 0, -180, 0 ), Vector3( 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "path"
+[sub_resource type="Animation" id=8]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -349,19 +348,19 @@ transform = Transform( 0.560545, 0, -0.258743, 0, 0.61738, 0, 0.258743, 0, 0.560
 [node name="mountain1" type="MeshInstance" parent="BG"]
 transform = Transform( -0.279323, 0, -0.355236, 0, 0.577672, 0, 0.014066, 0, -0.45034, -85.577, -115.798, 76.3286 )
 mesh = ExtResource( 14 )
-material/0 = SubResource( 3 )
+material/0 = SubResource( 2 )
 
 [node name="Wall" type="StaticBody" parent="BG"]
 transform = Transform( 5.39643, 0, 0, 0, 26.5847, 0, 0, 0, 45.6456, -29.9578, 0, 66.3235 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Wall"]
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
 [node name="Wall2" type="StaticBody" parent="BG"]
 transform = Transform( 65.632, 0, 0, 0, 100, 0, 0, 0, 32.312, -80.4845, -66.7864, 143.41 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Wall2"]
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
 [node name="Mountain7" parent="BG" instance=ExtResource( 13 )]
 transform = Transform( 2.17387, 0, -1.00344, 0, 4.05684, 0, 1.00344, 0, 2.17387, 101.907, -68.7982, 278.087 )
@@ -416,12 +415,12 @@ transform = Transform( 5.13588, 0, 0, 0, 0.095, 0, 0, 0, 3.73803, 4.18982, 1.053
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Ground"]
 transform = Transform( 19.6297, 0, 0, 0, 117.457, 0, 0, 0, 17.0359, 0, -116.468, 0 )
-mesh = SubResource( 6 )
+mesh = SubResource( 4 )
 material/0 = SubResource( 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Ground"]
 transform = Transform( 19.63, 0, 0, 0, 1, 0, 0, 0, 17.036, 0, 0, 0 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="Ground3" type="StaticBody" parent="BG"]
 editor/display_folded = true
@@ -441,12 +440,12 @@ transform = Transform( 5.13588, 0, 0, 0, 0.095, 0, 0, 0, 3.73803, 4.18982, 1.053
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Ground3"]
 transform = Transform( 19.6297, 0, 0, 0, 1, 0, 0, 0, 17.0359, 0, 0, 0 )
-mesh = SubResource( 6 )
+mesh = SubResource( 4 )
 material/0 = ExtResource( 20 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Ground3"]
 transform = Transform( 19.63, 0, 0, 0, 1, 0, 0, 0, 17.036, 0, 0, 0 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="Ground4" type="StaticBody" parent="BG"]
 editor/display_folded = true
@@ -466,12 +465,12 @@ transform = Transform( 5.13588, 0, 0, 0, 0.095, 0, 0, 0, 3.73803, 4.18982, 1.053
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Ground4"]
 transform = Transform( 19.6297, 0, 0, 0, 1, 0, 0, 0, 17.0359, 0, 0, 0 )
-mesh = SubResource( 6 )
+mesh = SubResource( 4 )
 material/0 = ExtResource( 20 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Ground4"]
 transform = Transform( 19.63, 0, 0, 0, 1, 0, 0, 0, 17.036, 0, 0, 0 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="Ground2" type="StaticBody" parent="BG"]
 transform = Transform( 0.703865, 0, 0, 0, 0.857144, -1.47279, 0, 0.515077, 2.45088, 0, -25.1711, 150.322 )
@@ -490,12 +489,12 @@ transform = Transform( 5.13588, 0, 0, 0, 0.095, 0, 0, 0, 3.73803, 4.18982, 1.053
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Ground2"]
 transform = Transform( 19.6297, 0, 0, 0, 1, 0, 0, 0, 17.0359, 0, 0, 0 )
-mesh = SubResource( 6 )
+mesh = SubResource( 4 )
 material/0 = ExtResource( 20 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Ground2"]
 transform = Transform( 19.63, 0, 0, 0, 1, 0, 0, 0, 17.036, 0, 0, 0 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="Interactive" type="Spatial" parent="BG"]
 
@@ -507,12 +506,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3527, 6.89287, 73.1975 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BG/Interactive/Fish"]
 autoplay = "path"
-anims/path = SubResource( 8 )
+anims/path = SubResource( 7 )
 
 [node name="Fish2" parent="BG/Interactive" instance=ExtResource( 22 )]
 transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -89.255, -30, 228.122 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BG/Interactive/Fish2"]
 autoplay = "path"
-anims/path = SubResource( 4 )
+anims/path = SubResource( 8 )
 [connection signal="pressed" from="Hud/Finished/Next" to="Hud" method="_on_Back_pressed"]
