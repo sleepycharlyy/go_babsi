@@ -184,7 +184,6 @@ visible = false
 anims/titlescreen = ExtResource( 7 )
 
 [node name="BG" type="Spatial" parent="."]
-editor/display_folded = true
 
 [node name="Cloud" parent="BG" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -59.4888, 80.3515, 79.1451 )
@@ -222,7 +221,6 @@ material/1 = ExtResource( 10 )
 material/2 = ExtResource( 10 )
 
 [node name="Hill" type="Spatial" parent="BG"]
-editor/display_folded = true
 
 [node name="HilMesh" type="MeshInstance" parent="BG/Hill"]
 transform = Transform( 28.4618, 0, 0, 0, 4.96054, 0.0144704, 0, -0.0461089, 15.8064, -18.1942, -6.33063, 37.2178 )
@@ -232,7 +230,7 @@ material/0 = ExtResource( 11 )
 [node name="Ground" type="Spatial" parent="BG"]
 
 [node name="GroundMesh" type="MeshInstance" parent="BG/Ground"]
-transform = Transform( 58.0279, 0, 0, 0, 1, -8.74228e-008, 0, 5.86019e-006, 67.033, 0, -6.96645, 0 )
+transform = Transform( 58.0279, 0, 0, 0, 1, -8.74228e-08, 0, 5.86019e-06, 67.033, 0, -6.96645, 0 )
 mesh = SubResource( 3 )
 material/0 = ExtResource( 12 )
 
@@ -240,7 +238,7 @@ material/0 = ExtResource( 12 )
 transform = Transform( -0.944719, 0.0252129, -0.326911, 0.0893521, 0.9791, -0.1827, 0.315473, -0.20181, -0.927227, 0, -6.53421, 30.1232 )
 
 [node name="Hamster" type="MeshInstance" parent="BG/Player"]
-transform = Transform( 0.0129965, 0.000293897, 7.43256e-005, -0.000302865, 0.0127261, 0.00263709, -1.31421e-005, -0.00263811, 0.0127295, -0.0439148, 5.36505, -3.90391 )
+transform = Transform( 0.0129965, 0.000293897, 7.43256e-05, -0.000302865, 0.0127261, 0.00263709, -1.31421e-05, -0.00263811, 0.0127295, -0.0439148, 5.36505, -3.90391 )
 mesh = ExtResource( 13 )
 material/0 = ExtResource( 14 )
 material/1 = ExtResource( 15 )
@@ -251,7 +249,7 @@ material/5 = ExtResource( 15 )
 material/6 = ExtResource( 14 )
 
 [node name="Ball" type="MeshInstance" parent="BG/Player"]
-transform = Transform( 5.18669, 0, 0, 0, 1.45779, -4.97761, -2.38419e-007, 4.97761, 1.45779, 0, 7.17697, 0 )
+transform = Transform( 5.18669, 0, 0, 0, 1.45779, -4.97761, -2.38419e-07, 4.97761, 1.45779, 0, 7.17697, 0 )
 mesh = SubResource( 4 )
 material/0 = null
 
@@ -300,7 +298,7 @@ material/6 = ExtResource( 26 )
 material/7 = ExtResource( 21 )
 
 [node name="Goal" type="StaticBody" parent="BG"]
-transform = Transform( 0.375136, 0, 0, 0, -0.375136, 3.27954e-008, 0, -3.27954e-008, -0.375136, -48.0506, -13.0345, 113.803 )
+transform = Transform( 0.375136, 0, 0, 0, -0.375136, 3.27954e-08, 0, -3.27954e-08, -0.375136, -48.0506, -13.0345, 113.803 )
 
 [node name="flagpole" type="MeshInstance" parent="BG/Goal"]
 mesh = ExtResource( 27 )
@@ -310,7 +308,7 @@ material/2 = ExtResource( 26 )
 material/3 = ExtResource( 18 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Goal"]
-transform = Transform( 10.4808, -1.7053e-013, -1.7053e-013, 5.68434e-013, 10.4808, 2.03288e-020, -1.13687e-013, 1.35525e-020, 10.4808, 0.824073, -3.03936e-007, -2.38011 )
+transform = Transform( 10.4808, -1.7053e-13, -1.7053e-13, 5.68434e-13, 10.4808, 2.03288e-20, -1.13687e-13, 1.35525e-20, 10.4808, 0.824073, -3.03936e-07, -2.38011 )
 shape = SubResource( 6 )
 
 [node name="SelectSound" type="AudioStreamPlayer" parent="."]

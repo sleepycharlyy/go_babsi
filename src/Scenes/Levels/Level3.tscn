@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Scenes/Misc/PlayMusic.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Audio/Music/coral.ogg" type="AudioStream" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://Materials/yellow.material" type="Material" id=20]
 [ext_resource path="res://Scenes/Interactive/BoostPad.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Interactive/Fish.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scenes/Collectibles/Fruit.tscn" type="PackedScene" id=23]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
@@ -143,7 +144,6 @@ environment = ExtResource( 3 )
 
 [node name="Hud" type="CanvasLayer" parent="."]
 pause_mode = 2
-editor/display_folded = true
 layer = 10
 script = ExtResource( 4 )
 
@@ -318,7 +318,7 @@ stream = ExtResource( 10 )
 bus = "SFX"
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.0203334, -0.861695, 0.50702, 0.0345295, 0.507427, 0.861003, -0.999197, 1.86414e-009, 0.0400716, 89.6072, 93.6587, -41.5199 )
+transform = Transform( 0.0203334, -0.861695, 0.50702, 0.0345295, 0.507427, 0.861003, -0.999197, 1.86414e-09, 0.0400716, 89.6072, 93.6587, -41.5199 )
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
 
@@ -423,7 +423,6 @@ transform = Transform( 19.63, 0, 0, 0, 1, 0, 0, 0, 17.036, 0, 0, 0 )
 shape = SubResource( 6 )
 
 [node name="Ground3" type="StaticBody" parent="BG"]
-editor/display_folded = true
 transform = Transform( 2.60248, 0, 0, 0, 1, 0, 0, 0, 3.87557, -24.8162, -47.459, 243.884 )
 
 [node name="Sandground2" parent="BG/Ground3" instance=ExtResource( 19 )]
@@ -448,7 +447,6 @@ transform = Transform( 19.63, 0, 0, 0, 1, 0, 0, 0, 17.036, 0, 0, 0 )
 shape = SubResource( 6 )
 
 [node name="Ground4" type="StaticBody" parent="BG"]
-editor/display_folded = true
 transform = Transform( 1.91873, 0, 0, 0, 1, 0, 0, 0, 3.21702, -136.305, -47.459, 256.162 )
 
 [node name="Sandground2" parent="BG/Ground4" instance=ExtResource( 19 )]
@@ -499,7 +497,7 @@ shape = SubResource( 6 )
 [node name="Interactive" type="Spatial" parent="BG"]
 
 [node name="BoostPad" parent="BG/Interactive" instance=ExtResource( 21 )]
-transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -63.3074, -46.3155, 276.535 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -63.3074, -46.3155, 276.535 )
 
 [node name="Fish" parent="BG/Interactive" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3527, 6.89287, 73.1975 )
@@ -509,9 +507,30 @@ autoplay = "path"
 anims/path = SubResource( 7 )
 
 [node name="Fish2" parent="BG/Interactive" instance=ExtResource( 22 )]
-transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -89.255, -30, 228.122 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -89.255, -30, 228.122 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BG/Interactive/Fish2"]
 autoplay = "path"
 anims/path = SubResource( 8 )
+
+[node name="Fruits" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0684586, 0.160133, -0.154053 )
+
+[node name="Fruit" parent="Fruits" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.231567, 4.90257, 33.0426 )
+
+[node name="Fruit2" parent="Fruits" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.231567, 4.90257, 61.6466 )
+
+[node name="Fruit3" parent="Fruits" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.231567, 4.90257, 93.2551 )
+
+[node name="Fruit4" parent="Fruits" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.231567, -19.4597, 148.286 )
+
+[node name="Fruit5" parent="Fruits" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.231567, -43.648, 251.05 )
+
+[node name="Fruit6" parent="Fruits" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34.0349, -43.648, 276.201 )
 [connection signal="pressed" from="Hud/Finished/Next" to="Hud" method="_on_Back_pressed"]
