@@ -69,7 +69,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.177, 0 )
 script = ExtResource( 1 )
 
 [node name="Ball" type="MeshInstance" parent="."]
-transform = Transform( 5.18669, 0, 0, 0, 5.1867, 0, 0, 0, 5.1867, 0, -3.00407e-005, 0 )
+transform = Transform( 5.18669, 0, 0, 0, 5.1867, 0, 0, 0, 5.1867, 0, -3.00407e-05, 0 )
 mesh = SubResource( 1 )
 material/0 = null
 
@@ -77,14 +77,14 @@ material/0 = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.74849, 0 )
 
 [node name="Camera" type="Camera" parent="Target"]
-transform = Transform( -1, 0, -8.74228e-008, -2.46229e-008, 0.959516, 0.281653, 8.38836e-008, 0.281653, -0.959516, 0, 5.96519, -11.7937 )
+transform = Transform( -1, 0, -8.74228e-08, -2.46229e-08, 0.959516, 0.281653, 8.38836e-08, 0.281653, -0.959516, 0, 5.96519, -11.7937 )
 current = true
 fov = 90.0
 far = 600.0
 script = ExtResource( 3 )
 
 [node name="Hamster" type="MeshInstance" parent="."]
-transform = Transform( -0.013, 3.96632e-011, 1.13581e-009, 0, 0.0129921, -0.000453694, -1.1365e-009, -0.000453694, -0.0129921, 0, -1, -3.876 )
+transform = Transform( -0.013, 3.96632e-11, 1.13581e-09, 0, 0.0129921, -0.000453694, -1.1365e-09, -0.000453694, -0.0129921, 0, -1, -3.876 )
 mesh = ExtResource( 4 )
 material/0 = ExtResource( 5 )
 material/1 = ExtResource( 5 )
@@ -97,7 +97,7 @@ material/7 = ExtResource( 6 )
 material/8 = ExtResource( 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.00407e-005, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.00407e-05, 0 )
 shape = SubResource( 2 )
 
 [node name="DetectJumpPad" type="RayCast" parent="."]
@@ -137,8 +137,6 @@ emission_points = PoolVector3Array( -0.5, 0, 0, 0, 0, 0, 0.5, 0, 0 )
 flag_rotate_y = true
 spread = 173.93
 gravity = Vector3( 0, 0, -7 )
-initial_velocity = 0.0
-angular_velocity = 0.030303
 radial_accel = 1.0
 angle = 18.0
 scale_amount = 2.0

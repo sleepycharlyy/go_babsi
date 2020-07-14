@@ -8,7 +8,7 @@ var spd = 23
 var rot_spd = 3
 var acc = 5
 var grav = 7
-var jump_power = 300
+var jump_power = 310
 
 const MAX_SLOPE_ANGLE = 65
 

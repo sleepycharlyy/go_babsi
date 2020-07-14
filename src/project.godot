@@ -138,7 +138,6 @@ button_pause={
 
 quality/driver/driver_name="GLES2"
 quality/driver/fallback_to_gles2=true
-quality/2d/gles2_use_nvidia_rect_flicker_workaround=true
 quality/intended_usage/framebuffer_allocation=3
 quality/2d/use_pixel_snap=true
 vram_compression/import_etc=true
@@ -154,6 +153,7 @@ environment/default_clear_color=Color( 0.14902, 0.192157, 0.219608, 1 )
 quality/depth/hdr=false
 environment/default_environment="res://default_env.tres"
 quality/dynamic_fonts/use_oversampling=false
+quality/2d/gles2_use_nvidia_rect_flicker_workaround=true
 quality/filters/msaa.Windows=0
 quality/depth/hdr.Windows=true
 quality/dynamic_fonts/use_oversampling.Windows=true

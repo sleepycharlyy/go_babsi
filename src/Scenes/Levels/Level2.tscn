@@ -322,7 +322,7 @@ transform = Transform( 0.956917, 0, 0.290363, 0, 1, 0, -0.290363, 0, 0.956917, -
 transform = Transform( 0.992802, 0, -0.119764, 0, 1, 0, 0.119764, 0, 0.992802, -19.6161, 0.884536, -5.58382 )
 
 [node name="Grass13" parent="BG" instance=ExtResource( 11 )]
-transform = Transform( 0.76505, 0.0125428, -0.643848, -0.0163925, 0.999866, -4.42662e-010, 0.643762, 0.0105543, 0.765153, -11.3504, 0.884536, -18.1531 )
+transform = Transform( 0.76505, 0.0125428, -0.643848, -0.0163925, 0.999866, -4.42662e-10, 0.643762, 0.0105543, 0.765153, -11.3504, 0.884536, -18.1531 )
 
 [node name="Grass12" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.884688, 0.0997679, 0.455382, -0.102589, 0.99455, -0.0185876, -0.454754, -0.0302731, 0.890102, 27.8395, 0.884536, -9.47143 )
@@ -331,7 +331,7 @@ transform = Transform( 0.884688, 0.0997679, 0.455382, -0.102589, 0.99455, -0.018
 transform = Transform( 0.548772, 0, 0.835972, 0, 1, 0, -0.835972, 0, 0.548772, 4.90189, 1.0982, 106.153 )
 
 [node name="Grass3" parent="BG" instance=ExtResource( 11 )]
-transform = Transform( 0.926593, 1.16415e-010, 0.376065, -0.0013921, 0.999993, 0.00343002, -0.376063, -0.00370175, 0.926587, -205.53, -0.916702, 107.24 )
+transform = Transform( 0.926593, 1.16415e-10, 0.376065, -0.0013921, 0.999993, 0.00343002, -0.376063, -0.00370175, 0.926587, -205.53, -0.916702, 107.24 )
 
 [node name="Grass4" parent="BG" instance=ExtResource( 11 )]
 transform = Transform( 0.916169, 0.1386, 0.376065, -0.150955, 0.988535, 0.00343002, -0.371278, -0.0599115, 0.926587, -153.206, -0.647016, 78.9087 )
@@ -340,7 +340,6 @@ transform = Transform( 0.916169, 0.1386, 0.376065, -0.150955, 0.988535, 0.003430
 transform = Transform( 0.887226, 0.0574268, -0.457746, 0, 0.992222, 0.12448, 0.461335, -0.110442, 0.880326, -193.177, -0.940794, 74.404 )
 
 [node name="Cloud9" type="Spatial" parent="BG"]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25427, -9.11359, -6.93118 )
 
 [node name="Cloud" parent="BG/Cloud9" instance=ExtResource( 12 )]
@@ -413,10 +412,8 @@ transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -129.543, 141.738, -85.6
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 77.7831, 141.738, 148.476 )
 
 [node name="Box6" type="Spatial" parent="BG"]
-editor/display_folded = true
 
 [node name="Box" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
 transform = Transform( 32.2646, 0, 0, 0, 1, 0, 0, 0, 31.8981, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box"]
@@ -427,7 +424,6 @@ mesh = SubResource( 3 )
 material/0 = ExtResource( 13 )
 
 [node name="Box2" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
 transform = Transform( 32.2646, 0, 0, 0, 1, 0, 0, 0, 31.8981, 0, 0, 26.0983 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box2"]
@@ -438,7 +434,6 @@ mesh = SubResource( 3 )
 material/0 = ExtResource( 13 )
 
 [node name="Box4" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
 transform = Transform( 32.2646, 0, 0, 0, 1, 0, 0, 0, 31.8981, 0, 0, 81.9778 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box4"]
@@ -449,7 +444,6 @@ mesh = SubResource( 3 )
 material/0 = ExtResource( 13 )
 
 [node name="Box3" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
 transform = Transform( 32.2646, 0, 0, 0, 18.8031, 0, 0, 0, 15.3038, 0, 8.57383, 70.758 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box3"]
@@ -460,7 +454,6 @@ mesh = SubResource( 3 )
 material/0 = ExtResource( 13 )
 
 [node name="Box6" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
 transform = Transform( 0.81705, 0, 0, 0, 6.90276, 0, 0, 0, 15.3038, 31.9107, 8.57383, 98.6666 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box6"]
@@ -471,7 +464,6 @@ mesh = SubResource( 3 )
 material/0 = ExtResource( 14 )
 
 [node name="Box7" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
 transform = Transform( 0.81705, 0, 0, 0, 6.90276, 0, 0, 0, 15.3038, -32.0008, 8.57383, 98.6666 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box7"]
@@ -482,7 +474,6 @@ mesh = SubResource( 3 )
 material/0 = ExtResource( 14 )
 
 [node name="Box11" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
 transform = Transform( 0.81705, 0, 0, 0, 6.90276, 0, 0, 0, 15.3038, -32.0008, 8.57383, 98.6666 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box11"]
@@ -493,7 +484,6 @@ mesh = SubResource( 3 )
 material/0 = ExtResource( 14 )
 
 [node name="Box8" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
 transform = Transform( 0.81705, 0, 0, 0, 6.90276, 0, 0, 0, 68.1929, -31.8519, 8.80567, 36.2796 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box8"]
@@ -504,8 +494,7 @@ mesh = SubResource( 3 )
 material/0 = ExtResource( 14 )
 
 [node name="Box21" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
-transform = Transform( -3.57144e-008, 0, -61.2839, 0, 6.90276, 0, 0.81705, 0, -2.67881e-006, -12.5656, 34.9612, 360.246 )
+transform = Transform( -3.57144e-08, 0, -61.2839, 0, 6.90276, 0, 0.81705, 0, -2.67881e-06, -12.5656, 34.9612, 360.246 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box21"]
 shape = SubResource( 2 )
@@ -515,8 +504,7 @@ mesh = SubResource( 3 )
 material/0 = ExtResource( 14 )
 
 [node name="Box23" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
-transform = Transform( -3.57144e-008, 0, -70.292, 0, 6.90276, 0, 0.81705, 0, -3.07256e-006, -164.678, -10.9588, 386.644 )
+transform = Transform( -3.57144e-08, 0, -70.292, 0, 6.90276, 0, 0.81705, 0, -3.07256e-06, -164.678, -10.9588, 386.644 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box23"]
 shape = SubResource( 2 )
@@ -526,7 +514,6 @@ mesh = SubResource( 3 )
 material/0 = ExtResource( 14 )
 
 [node name="Box9" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
 transform = Transform( 0.81705, 0, 0, 0, 6.90276, 0, 0, 0, 68.1929, 31.9733, 8.57383, 36.2449 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box9"]
@@ -537,8 +524,7 @@ mesh = SubResource( 3 )
 material/0 = ExtResource( 14 )
 
 [node name="Box10" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
-transform = Transform( -3.57144e-008, 0, -32.2055, 0, 6.90276, 0, 0.81705, 0, -1.40775e-006, -0.28323, 8.57383, -31.9203 )
+transform = Transform( -3.57144e-08, 0, -32.2055, 0, 6.90276, 0, 0.81705, 0, -1.40775e-06, -0.28323, 8.57383, -31.9203 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box10"]
 shape = SubResource( 2 )
@@ -548,7 +534,6 @@ mesh = SubResource( 3 )
 material/0 = ExtResource( 14 )
 
 [node name="Box5" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
 transform = Transform( 32.2646, 0, 0, 0, 18.8031, 0, 0, 0, 15.3038, 0, 8.57383, 128.143 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box5"]
@@ -559,10 +544,10 @@ mesh = SubResource( 3 )
 material/0 = ExtResource( 13 )
 
 [node name="Box12" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
-transform = Transform( 1.73567, 0, 0, 0, 4.18555, 0, 0, 0, 15.3038, 0, 22.9985, 158.9 )
+transform = Transform( 1.73567, 0, 0, 0, 4.1807, 0.736916, 0, -0.201545, 15.286, 0, 24.0037, 158.9 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box12"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box12"]
@@ -570,11 +555,10 @@ mesh = SubResource( 3 )
 material/0 = ExtResource( 15 )
 
 [node name="Box13" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
 transform = Transform( 9.87379, 0, 0, 0, 6.02813, 0, 0, 0, 9.73136, 0, 22.9985, 183.039 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box13"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019179, 1.19209e-006, -0.057148 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019179, 1.19209e-06, -0.057148 )
 shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box13"]
@@ -582,7 +566,6 @@ mesh = SubResource( 3 )
 material/0 = ExtResource( 16 )
 
 [node name="Box14" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
 transform = Transform( 56.2748, 0, 0, 0, 6.02813, 0, 0, 0, 23.5604, -14.5503, 22.9985, 337.964 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box14"]
@@ -593,7 +576,6 @@ mesh = SubResource( 3 )
 material/0 = ExtResource( 13 )
 
 [node name="Box19" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
 transform = Transform( 67.8234, 0, 0, 0, 6.02813, 0, 0, 0, 50.3162, -164.217, -20.9733, 337.964 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box19"]
@@ -604,7 +586,6 @@ mesh = SubResource( 3 )
 material/0 = ExtResource( 13 )
 
 [node name="Box24" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
 transform = Transform( 32.1192, 0, 0, 0, 2.85475, 0, 0, 0, 23.8283, -18.4688, -17.5271, 367.46 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box24"]
@@ -615,7 +596,6 @@ mesh = SubResource( 3 )
 material/0 = ExtResource( 13 )
 
 [node name="Box20" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
 transform = Transform( 38.5681, 0, 0, 0, 6.02813, 0, 0, 0, 28.8909, -187.409, -6.80398, 151.41 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box20"]
@@ -628,7 +608,6 @@ mesh = SubResource( 3 )
 material/0 = ExtResource( 13 )
 
 [node name="Box25" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
 transform = Transform( 14.0383, 0, 0, 0, 6.02813, 0, 0, 0, 15.9778, -192.769, -6.80398, 209.366 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box25"]
@@ -636,12 +615,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.792, 0.264, 0, -2.13 )
 shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box25"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.791622, 0.261806, -3.57628e-007, -2.11863 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.791622, 0.261806, -3.57628e-07, -2.11863 )
 mesh = SubResource( 3 )
 material/0 = ExtResource( 13 )
 
 [node name="Box26" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
 transform = Transform( 24.0329, 0, 0, 0, 6.02813, 0, 0, 0, 15.9778, -138.786, -6.80398, 215.471 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box26"]
@@ -649,16 +627,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.792, 0.262, 0, -2.545 )
 shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box26"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.791622, 0.261807, -3.57628e-007, -2.54491 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.791622, 0.261807, -3.57628e-07, -2.54491 )
 mesh = SubResource( 3 )
 material/0 = ExtResource( 13 )
 
 [node name="Box18" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
-transform = Transform( 26.25, -0.256229, -1.46304e-006, 23.5026, 0.286182, 0, 2.29485e-006, -2.24002e-008, 16.7353, -96.817, 4.79656, 337.964 )
+transform = Transform( 26.25, -0.256229, -1.46304e-06, 23.5026, 0.286182, 0, 2.29485e-06, -2.24002e-08, 16.7353, -96.817, 4.79656, 337.964 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box18"]
-transform = Transform( 1, -4.14079e-017, 0, -3.8147e-006, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 1, -4.14079e-17, 0, -3.8147e-06, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box18"]
@@ -666,18 +643,17 @@ mesh = SubResource( 3 )
 material/0 = ExtResource( 16 )
 
 [node name="Box17" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
-transform = Transform( 9.87379, 0, 0, 0, 6.02813, 0, 0, 0, 13.5803, -26.2895, 22.9985, 287.965 )
+transform = Transform( 9.87379, 0, 0, 0, 6.02813, 0, 0, 0, 13.5803, -21.5881, 22.9985, 287.965 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box17"]
 shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="BG/Box6/Box17"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 3 )
 material/0 = ExtResource( 16 )
 
 [node name="Box16" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
 transform = Transform( 9.87379, 0, 0, 0, 6.02813, 0, 0, 0, 13.5803, 22.1211, 22.9985, 289.32 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box16"]
@@ -688,7 +664,6 @@ mesh = SubResource( 3 )
 material/0 = ExtResource( 16 )
 
 [node name="Box15" type="StaticBody" parent="BG/Box6"]
-editor/display_folded = true
 transform = Transform( 27.3241, 0, 0, 0, 6.02813, 0, 0, 0, 13.5803, -1.21265, 22.9985, 222.301 )
 
 [node name="CollisionShape" type="CollisionShape" parent="BG/Box6/Box15"]
@@ -703,13 +678,13 @@ material/0 = ExtResource( 13 )
 [node name="Interactive" type="Spatial" parent="BG"]
 
 [node name="BoostPad8" parent="BG/Interactive" instance=ExtResource( 17 )]
-transform = Transform( -1.62921e-007, 0, 0.999998, 0, 1, 0, -1, 0, -1.6292e-007, -184.173, -0.522491, 171.486 )
+transform = Transform( -1.62921e-07, 0, 0.999998, 0, 1, 0, -1, 0, -1.6292e-07, -184.173, -0.522491, 171.486 )
 
 [node name="JumpPad" parent="BG/Interactive" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.0207, 1.12371, 92.0745 )
 
 [node name="JumpPad2" parent="BG/Interactive" instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5804, 1.12371, 46.432 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5804, 1.12371, 47.8142 )
 
 [node name="BoostPad" parent="BG/Interactive" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.473384, 27.6088, 78.6228 )
@@ -721,13 +696,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.473384, 29.0003, 186.203 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9763, 29.0003, 239.335 )
 
 [node name="BoostPad4" parent="BG/Interactive" instance=ExtResource( 17 )]
-transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 20.5104, 29.0003, 289.436 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20.5104, 29.0003, 289.436 )
 
 [node name="BoostPad5" parent="BG/Interactive" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.4647, 29.0003, 294.639 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.7633, 29.0003, 294.639 )
 
 [node name="BoostPad6" parent="BG/Interactive" instance=ExtResource( 17 )]
-transform = Transform( -1, 0, -1.50996e-007, 0, 1, 0, 1.50996e-007, 0, -1, -177.826, -14.3193, 294.639 )
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -177.826, -14.3193, 294.639 )
 
 [node name="MovingPlatform" parent="BG/Interactive" instance=ExtResource( 19 )]
 transform = Transform( 27.3241, 0, 0, 0, 6.02813, 0, 0, 0, 13.5803, -176.305, -38.4498, 247.616 )
@@ -735,43 +710,40 @@ spd = 5
 distance_y = 40
 
 [node name="MovingPlatform3" parent="BG/Interactive" instance=ExtResource( 19 )]
-editor/display_folded = true
 transform = Transform( 27.3241, 0, 0, 0, 6.02813, 0, 0, 0, 13.5803, -99.2015, -45.1269, 146.454 )
 spd = 5
 distance_y = 40
 
 [node name="BoostPad9" parent="BG/Interactive/MovingPlatform3" instance=ExtResource( 17 )]
-transform = Transform( -0.0365978, 0, -5.52609e-009, 0, 0.165889, 0, 1.11188e-008, 0, -0.0736359, 0.661404, 1.04962, -0.110012 )
+transform = Transform( -0.0365978, 0, -5.52609e-09, 0, 0.165889, 0, 1.11188e-08, 0, -0.0736359, 0.661404, 1.04962, -0.110012 )
 
 [node name="MovingPlatform4" parent="BG/Interactive" instance=ExtResource( 19 )]
-editor/display_folded = true
 transform = Transform( 27.3241, 0, 0, 0, 6.02813, 0, 0, 0, 13.5803, -99.2015, -45.1269, 105.034 )
 spd = 6
 distance_y = 40
 
 [node name="BoostPad10" parent="BG/Interactive/MovingPlatform4" instance=ExtResource( 17 )]
-transform = Transform( 7.12585e-009, 0, -0.0365976, 0, 0.165889, 0, 0.0736362, 0, 1.43374e-008, -0.719402, 1.04962, -0.314063 )
+transform = Transform( 7.12585e-09, 0, -0.0365976, 0, 0.165889, 0, 0.0736362, 0, 1.43374e-08, -0.719402, 1.04962, -0.314063 )
 
 [node name="MovingPlatform2" parent="BG/Interactive" instance=ExtResource( 19 )]
-editor/display_folded = true
 transform = Transform( 27.3241, 0, 0, 0, 6.02813, 0, 0, 0, 13.5803, -176.305, -46.024, 213.698 )
 spd = 6
 distance_y = 40
 
 [node name="BoostPad7" parent="BG/Interactive/MovingPlatform2" instance=ExtResource( 17 )]
-transform = Transform( -0.0365978, 0, -5.52611e-009, 0, 0.165889, 0, 1.11187e-008, 0, -0.0736359, -0.704762, 1.06223, -0.123135 )
+transform = Transform( -0.0365978, 0, -5.52611e-09, 0, 0.165889, 0, 1.11187e-08, 0, -0.0736359, -0.704762, 1.06223, -0.123135 )
 
 [node name="Goal" parent="BG/Interactive" instance=ExtResource( 20 )]
-transform = Transform( -1, -8.74228e-008, 0, 8.74228e-008, -1, 0, 0, 0, 1, -179.398, 0, 99.306 )
+transform = Transform( -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, -179.398, 0, 99.306 )
 
 [node name="Ladder" parent="BG" instance=ExtResource( 21 )]
-transform = Transform( 1.68634, 1.65442, 0, -1.65442, 1.68634, 0, 0, 0, 2.36239, -68.0736, -18.5059, 366.2 )
+transform = Transform( 1.7877, 1.54433, 0, -1.54433, 1.7877, 0, 0, 0, 2.36239, -68.0736, -19.2777, 366.2 )
 
 [node name="House2" parent="BG" instance=ExtResource( 22 )]
-transform = Transform( -1, 0, -1.50996e-007, 0, 1, 0, 1.50996e-007, 0, -1, -142.263, 0, 428.585 )
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -142.263, 0, 428.585 )
 
 [node name="House" parent="BG" instance=ExtResource( 22 )]
-transform = Transform( -1, 0, -1.50996e-007, 0, 1, 0, 1.50996e-007, 0, -1, -14.5712, 0, 428.585 )
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -14.5712, 0, 428.585 )
 
 [node name="Puddle" type="MeshInstance" parent="BG"]
 transform = Transform( 6.71249, 0, 0, 0, 1.01, 0, 0, 0, 7.10734, -18.6962, 0, 9.03473 )
@@ -937,7 +909,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4776, 31.5633, 338.399 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5403, 31.5633, 338.399 )
 
 [node name="Fruit13" parent="BG" instance=ExtResource( 26 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4776, 31.5633, 283.318 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.7762, 31.5633, 283.318 )
 
 [node name="Fruit14" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.3981, 31.5633, 279.746 )
@@ -979,7 +951,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.1958, 3.9945, 99.635 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1587, 3.9945, 99.635 )
 
 [node name="Fruit27" parent="BG" instance=ExtResource( 26 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4891, 4.2861, 46.257 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4891, 4.2861, 47.6421 )
 
 [node name="Fruit28" parent="BG" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4891, 4.2861, -22.301 )
