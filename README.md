@@ -3,11 +3,10 @@
 ## About
 
 a 3d hamsterball game i made for the "2buttonsonly" itch.io jam :hamster:  
-(NOTE: 
+INFO:  
 * made in godot 3.1.1 and i can't guarantee it working in future versions of godot.  
-* this repo uses git-lfs!
-)  
-  
+* this repo uses git-lfs! 
+   
 [itch.io page](https://sleepycharlyy.itch.io/go-babsi)
 
 ## Controls
