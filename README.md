@@ -1,8 +1,11 @@
-# go! BABSI - a 3d hamsterball game i made for the "2buttonsonly" itch.io jam :hamster:
+# go! BABSI 
 
-## Website
+## About
 
-https://sleepycharlyy.itch.io/go-babsi
+a 3d hamsterball game i made for the "2buttonsonly" itch.io jam :hamster:  
+( made in godot 3.1.1 and i cant guarantee it working in future versions of godot )  
+  
+[itch.io page](https://sleepycharlyy.itch.io/go-babsi)
 
 ## Controls
 
@@ -21,6 +24,7 @@ It only uses two buttons, but there are different kinds of 2-button pairs you ca
 ![alt text](https://img.itch.zone/aW1hZ2UvNTMzMjg2LzI3NzUwMjcucG5n/original/C4tkuI.png)
 ![alt text](https://img.itch.zone/aW1hZ2UvNTMzMjg2LzI3NzUwMzcucG5n/original/iklkW5.png)
 
-## Note
+## Repo
 
-this repo uses git-lfs!
+This repo uses git-lfs.
+
