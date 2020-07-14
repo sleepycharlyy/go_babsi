@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Obj/ladder.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Materials/bigger_outline_yellow.material" type="Material" id=2]
+[ext_resource path="res://Materials/bigger_outline_red.material" type="Material" id=3]
+
+
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1, 10.1735, 3.58407 )
+
+[node name="Ladder" type="StaticBody"]
+
+[node name="ladder" type="MeshInstance" parent="."]
+transform = Transform( 0.0750953, -0.0660356, 0, 0.0660356, 0.0750953, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 2 )
+material/1 = ExtResource( 2 )
+material/2 = ExtResource( 2 )
+material/3 = ExtResource( 2 )
+material/4 = ExtResource( 2 )
+material/5 = ExtResource( 3 )
+material/6 = ExtResource( 3 )
+material/7 = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.653367, 0.757041, 0, -0.757041, 0.653367, 0, 0, 0, 1, -2.45902, -1.10092, 0 )
+shape = SubResource( 1 )

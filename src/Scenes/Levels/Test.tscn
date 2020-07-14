@@ -1,15 +1,26 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Player/Hud.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Entities/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Entities/Player/Hud.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Materials/outline.material" type="Material" id=3]
 [ext_resource path="res://Shaders/cel.shader" type="Shader" id=4]
-[ext_resource path="res://Scenes/Scenery/Sandground.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Collectibles/Fruit.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Interactive/Fish.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Effects/Sandground.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Entities/Collectibles/Fruit.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Entities/Interactable/Fish.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Levels/Enviroments/Level3_enviroment.tres" type="Environment" id=8]
-[ext_resource path="res://Scenes/Scenery/Bubbles.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Objects/Seaplants.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Effects/Bubbles.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Props/Seaplants.tscn" type="PackedScene" id=10]
+
+
+
+
+
+
+
+
+
+
+
 
 [sub_resource type="ShaderMaterial" id=1]
 next_pass = ExtResource( 3 )

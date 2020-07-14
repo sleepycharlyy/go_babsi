@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Obj/grass.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Materials/bigger_outline_green.material" type="Material" id=2]
+
+
+[node name="Grass" type="Spatial"]
+
+[node name="Grass" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 2 )
+material/1 = ExtResource( 2 )
+material/2 = ExtResource( 2 )

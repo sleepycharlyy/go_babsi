@@ -1,7 +1,8 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=2]
 
-[ext_resource path="res://Materials/biggeroutline.material" type="Material" id=1]
+[ext_resource path="res://Materials/bigger_outline_black.material" type="Material" id=1]
 [ext_resource path="res://Shaders/cel.shader" type="Shader" id=2]
+
 
 [resource]
 next_pass = ExtResource( 1 )
