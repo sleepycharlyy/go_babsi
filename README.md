@@ -25,8 +25,3 @@ It only uses two buttons, but there are different kinds of 2-button pairs you ca
 ![alt text](https://img.itch.zone/aW1hZ2UvNTMzMjg2LzI3NzUwMjkucG5n/original/9XCq6v.png)
 ![alt text](https://img.itch.zone/aW1hZ2UvNTMzMjg2LzI3NzUwMjcucG5n/original/C4tkuI.png)
 ![alt text](https://img.itch.zone/aW1hZ2UvNTMzMjg2LzI3NzUwMzcucG5n/original/iklkW5.png)
-
-## Repo
-
-This repo uses git-lfs.
-
