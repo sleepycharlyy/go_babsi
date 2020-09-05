@@ -2,11 +2,13 @@
 
 [ext_resource path="res://Scripts/Entities/Player/hud.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/font_30.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Assets/Textures/fruit.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Textures/peanut.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/Items/fruit.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/Items/peanut.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Fonts/font_48.res" type="DynamicFont" id=5]
 [ext_resource path="res://Assets/Fonts/font_16.res" type="DynamicFont" id=6]
 [ext_resource path="res://Audio/SFX/accept.wav" type="AudioStream" id=7]
+
+
 
 
 [node name="Hud" type="CanvasLayer"]

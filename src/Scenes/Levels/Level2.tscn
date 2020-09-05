@@ -3,8 +3,8 @@
 [ext_resource path="res://Scenes/Entities/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Entities/Player/hud.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Fonts/font_30.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Assets/Textures/fruit.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Textures/peanut.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Textures/Items/fruit.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/Items/peanut.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Fonts/font_48.res" type="DynamicFont" id=6]
 [ext_resource path="res://Assets/Fonts/font_16.res" type="DynamicFont" id=7]
 [ext_resource path="res://Audio/SFX/accept.wav" type="AudioStream" id=8]
@@ -30,6 +30,8 @@
 [ext_resource path="res://Scenes/Props/House.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Scenes/Misc/PlayMusic.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Audio/Music/rain.ogg" type="AudioStream" id=30]
+
+
 
 [sub_resource type="Environment" id=1]
 background_mode = 2

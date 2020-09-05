@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/peanut.png-f83fd51ca256712d1c362acd53d2e411.stex"
+path="res://.import/peanut.png-27ec17ad1bc22eb3cd69e858be96bba0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/peanut.png"
-dest_files=[ "res://.import/peanut.png-f83fd51ca256712d1c362acd53d2e411.stex" ]
+source_file="res://Assets/Textures/Items/peanut.png"
+dest_files=[ "res://.import/peanut.png-27ec17ad1bc22eb3cd69e858be96bba0.stex" ]
 
 [params]
 
